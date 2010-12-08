@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mkdir ~/.vim ~/.xmonad
+
+cp Xdefaults ~/.Xdefaults
+cp vimrc ~/.vimrc
+cp zshrc ~/.zshrc
+cp xmodmap ~/.xmodmap
+cp xbindkeysrc ~/.xbindkeysrc
+cp -r ./vim/* ~/.vim/
+cp -r ./xmonad/* ~/.xmonad/
