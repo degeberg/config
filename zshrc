@@ -59,5 +59,8 @@ alias lla='ls -lA'
 alias nano='nano -w'
 alias tc='sudo truecrypt -t'
 alias mosml='rlwrap mosml'
+
 alias apti='sudo aptitude install'
 alias apts='aptitude search'
+alias aptr='sudo aptitude remove'
+alias apt='sudo aptitude'
