@@ -8,5 +8,6 @@ cp ~/.vimrc vimrc
 cp ~/.zshrc zshrc
 cp ~/.xmodmap xmodmap
 cp ~/.xbindkeysrc xbindkeysrc
+cp ~/.xsession xsession
 cp -r ~/.vim/* ./vim/
 cp ~/.xmonad/xmonad.hs ./xmonad
