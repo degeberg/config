@@ -18,6 +18,8 @@ dzenheader &
 # Remaps some of the keys
 xmodmap ~/.xmodmap
 
+xbindkeys
+
 # For locking the screen
 gnome-screensaver
 
