@@ -1,0 +1,7 @@
+[user]
+	name = Daniel Egeberg
+	email = daniel.egeberg@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto

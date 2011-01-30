@@ -43,10 +43,6 @@ EDITOR='vim'
 
 autoload colors zsh/terminfo
 
-if [ -d $HOME/bin ]; then
-    PATH=$PATH:/$HOME/bin
-fi
-
 REPORTTIME=20
 setopt NOCLOBBER
 

@@ -10,6 +10,10 @@
 # x11-xserver-utils (for xmodmap)
 # xbindkeys (for shortcuts)
 
+if [ -d $HOME/bin ]; then
+    PATH=$HOME/bin:$PATH
+fi
+
 soundcontroller init
 
 # Creates the header

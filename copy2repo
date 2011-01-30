@@ -11,3 +11,4 @@ cp ~/.xbindkeysrc xbindkeysrc
 cp ~/.xsession xsession
 cp -r ~/.vim/* ./vim/
 cp ~/.xmonad/xmonad.hs ./xmonad
+cp ~/.gitconfig gitconfig
