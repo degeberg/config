@@ -32,6 +32,7 @@ set formatprg=par\ -w78
 
 cmap w!! w !sudo tee % >/dev/null
 
+syntax on
 colorscheme wombat256i
 if has('gui_running')
     set background=dark

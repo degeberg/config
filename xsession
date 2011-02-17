@@ -14,10 +14,7 @@ if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
-soundcontroller init
-
-# Creates the header
-dzenheader &
+amixer -q set PCM 0
 
 # Remaps some of the keys
 xmodmap ~/.xmodmap
@@ -25,7 +22,7 @@ xmodmap ~/.xmodmap
 xbindkeys
 
 # For locking the screen
-gnome-screensaver
+#gnome-screensaver
 
 # Starts KeePassX
 keepassx &
@@ -41,7 +38,3 @@ urxvtd -q -f -o
 
 # Starts xmonad/gnome
 exec xmonad
-
-# Make sure that dzen doesn't keep running after logout
-killall dzenheader dzen2
-

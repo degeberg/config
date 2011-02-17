@@ -37,7 +37,7 @@ URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
 
-URxvt*letterSpace: -1
+!URxvt*letterSpace: -1
 
 URxvt*modifier: alt
-
+URxvt.urgentOnBell: true

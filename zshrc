@@ -41,6 +41,8 @@ fi
 
 EDITOR='vim'
 
+export PATH=~/.cabal/bin:$PATH
+
 autoload colors zsh/terminfo
 
 REPORTTIME=20
@@ -55,6 +57,7 @@ alias lla='ls -lA'
 alias nano='nano -w'
 alias tc='sudo truecrypt -t'
 alias mosml='rlwrap mosml'
+alias mtr='mtr --curses'
 
 alias apti='sudo aptitude install'
 alias apts='aptitude search'

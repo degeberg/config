@@ -1,0 +1,20 @@
+-- vim: syn=haskell
+
+Config { font = "-*-montecarlo-medium-r-normal-*-11-*-*-*-c-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run MultiCpu ["-t","CPU: <total0>%/<total1>%","-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    , Run Com "/home/daniel/bin/xmobar_volume.sh" [] "vol" 2
+                    , Run BatteryP ["BAT0"] ["-t","Bat: <left>%","-L","30","-H","90","-l","orange","-n","red","-h","green"] 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader%}{%battery% | %multicpu% | %memory% | %eth0% | %vol% | <fc=#ee9a00>%date%</fc>"
+       }
+

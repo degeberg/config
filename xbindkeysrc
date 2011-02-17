@@ -9,26 +9,6 @@
 "scrot"
   Print
 
-# Turn volume up
-"soundcontroller up"
-  XF86AudioRaiseVolume
-
-# Turn volume down
-"soundcontroller down"
-  XF86AudioLowerVolume
-
-# Mute/unmute volume
-"soundcontroller toggle"
-  XF86AudioMute
-
-# Silence the volume
-"soundcontroller silence"
-  mod4 + shift + m
-
-# change sound card
-"soundcontroller changesound"
-  mod4 + s
-
 "brightness up"
   XF86MonBrightnessUp
 

@@ -11,3 +11,5 @@ cp xsession ~/.xsession
 cp -r ./vim/* ~/.vim/
 cp -r ./xmonad/* ~/.xmonad/
 cp gitconfig ~/.gitconfig
+cp screenrc ~/.screenrc
+cp xmobarrc ~/.xmobarrc
