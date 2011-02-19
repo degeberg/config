@@ -35,7 +35,12 @@ set formatprg=par\ -w78
 cmap w!! w !sudo tee % >/dev/null
 
 syntax on
-colorscheme wombat256i
+if $HOSTNAME == "daniel-laptop"
+    colorscheme wombat
+else
+    colorscheme wombat256
+endif
+
 if has('gui_running')
     set background=dark
 endif
