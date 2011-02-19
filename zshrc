@@ -64,11 +64,18 @@ alias apts='aptitude search'
 alias aptr='sudo aptitude remove'
 alias apt='sudo aptitude'
 
-# z
-. ~/src/z/z.sh
-function precmd() {
-    z --add "$(pwd -P)"
-}
+
+
+if [ `hostname` = "daniel-laptop" ]; then
+    . ~/src/z/z.sh
+    function precmd() {
+        z --add "$(pwd -P)"
+    }
+else
+    if [ ""$TERM = "rxvt-256color" ]; then
+        export TERM=rxvt-unicode
+    fi
+fi
 
 # completion
 
