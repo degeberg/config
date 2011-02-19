@@ -2,7 +2,7 @@
   mod4 + shift + Return
 
 # Locks the screen
-"gnome-screensaver-command -l"
+"i3lock -c 000000"
   mod4 + z
 
 # Takes a screenshot and saves it in the home dir

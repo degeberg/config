@@ -20,6 +20,8 @@ set modeline
 set number
 nmap <F3> :set invnumber<CR>
 
+nmap <F5> :NERDTreeToggle<CR>
+
 set ignorecase
 set smartcase
 

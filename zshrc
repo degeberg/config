@@ -63,3 +63,27 @@ alias apti='sudo aptitude install'
 alias apts='aptitude search'
 alias aptr='sudo aptitude remove'
 alias apt='sudo aptitude'
+
+# z
+. ~/src/z/z.sh
+function precmd() {
+    z --add "$(pwd -P)"
+}
+
+# completion
+
+zstyle ':completion:*' format '%SCompleting %U%d%u%s'
+zstyle :completion::complete:cd:: tag-order \
+                   local-directories path-directories
+
+zstyle ':completion:*' auto-description 'specify %d:'
+zstyle ':completion:*' completer _expand _complete _files
+zstyle ':completion:*' expand prefix
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'r:|[._-]=* r:|=*' 'r:|[._-]=* r:|=*' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' menu select=0
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' verbose true

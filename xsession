@@ -14,10 +14,12 @@ if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
+PATH=~/.cabal/bin:$PATH
+
 amixer -q set PCM 0
 
 # Remaps some of the keys
-xmodmap ~/.xmodmap
+#xmodmap ~/.xmodmap
 
 xbindkeys
 
@@ -36,5 +38,7 @@ dropbox.py start
 # start urxvt terminal daemon
 urxvtd -q -f -o
 
+setxkbmap us -variant intl
+
 # Starts xmonad/gnome
-exec xmonad
+exec ~/.cabal/bin/xmonad
