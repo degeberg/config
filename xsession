@@ -19,7 +19,7 @@ PATH=~/.cabal/bin:$PATH
 amixer -q set PCM 0
 
 # Remaps some of the keys
-#xmodmap ~/.xmodmap
+xmodmap ~/.xmodmap
 
 xbindkeys
 

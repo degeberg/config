@@ -1,23 +1,7 @@
-keycode 35  = asciicircum asciitilde dead_circumflex dead_tilde dead_diaeresis dead_caron
+keycode 49 = grave asciitilde grave asciitilde dead_grave dead_tilde
 
-keycode 66 = Meta_R
+keycode 48 = apostrophe quotedbl apostrophe quotedbl dead_acute dead_diaeresis
 
-keycode 135  = Mode_switch
-
-clear Shift
 clear Lock
-clear Control
-clear Mod1
-clear Mod2
-clear Mod3
-clear Mod4
-clear Mod5
-
-add shift   = Shift_L Shift_R
-add control = Control_L Control_R
-add mod1    = Alt_L  Meta_L
-add mod2    = Num_Lock
-add mod3    = Meta_R
-add mod4    = Super_L
-add mod5    = ISO_Level3_Shift
-
+keycode 66 = Meta_R
+add mod3 = Meta_R
