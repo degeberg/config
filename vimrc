@@ -21,6 +21,7 @@ set number
 nmap <F3> :set invnumber<CR>
 
 nmap <F5> :NERDTreeToggle<CR>
+nmap <F6> :TlistToggle<CR>
 
 set ignorecase
 set smartcase
@@ -44,3 +45,11 @@ endif
 if has('gui_running')
     set background=dark
 endif
+
+set wildignore=*.o,*.pyc,*~
+set tags=tags;/
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+set cul
