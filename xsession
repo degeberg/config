@@ -12,6 +12,8 @@ dropbox.py start
 # start urxvt terminal daemon
 urxvtd -q -f -o
 
+xsetroot -cursor_name left_ptr
+
 setxkbmap us -variant intl
 xmodmap ~/.xmodmap
 
