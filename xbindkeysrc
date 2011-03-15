@@ -1,11 +1,9 @@
 "urxvt"
   mod4 + shift + Return
 
-# Locks the screen
 "i3lock -c 000000"
   mod4 + z
 
-# Takes a screenshot and saves it in the home dir
 "scrot"
   Print
 
@@ -15,10 +13,11 @@
 "brightness down"
   XF86MonBrightnessDown
 
-# Lock screen and suspend computer
 "sleep.sh"
   XF86Sleep
 
-# opens the dmenu launcher
 "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
   mod4 + p
+
+"rimshot"
+  XF86AudioMedia

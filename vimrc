@@ -53,3 +53,6 @@ set tags=tags;/
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 set cul
+set splitright
+set splitbelow
+set ttyfast
