@@ -67,10 +67,10 @@ alias apt='sudo aptitude'
 
 
 if [ `hostname` = "daniel-laptop" ]; then
-    . ~/src/z/z.sh
-    function precmd() {
-        z --add "$(pwd -P)"
-    }
+#    . ~/src/z/z.sh
+#    function precmd() {
+#        z --add "$(pwd -P)"
+#    }
 else
     if [ ""$TERM = "rxvt-256color" ]; then
         export TERM=rxvt-unicode
@@ -94,3 +94,17 @@ zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'r:|[._-]=* r:|=*' 'r:|[.
 zstyle ':completion:*' menu select=0
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' verbose true
+
+# colored man pages
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;37m") \
+        LESS_TERMCAP_md=$(printf "\e[1;37m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;47;30m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[0;36m") \
+            man "$@"
+}
+

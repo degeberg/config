@@ -1,6 +1,6 @@
 import XMonad
 import System.Exit
-import qualified XMonad.StackSet as W 
+import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -19,7 +19,7 @@ import Graphics.X11.ExtraTypes.XF86
 import Graphics.X11.ExtraTypes.XorgDefault
 
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
-myBar = "/home/daniel/.cabal/bin/xmobar"
+myBar = "xmobar"
 myTerminal = "urxvt"
 
 main = do xmproc <- spawnPipe myBar
@@ -81,10 +81,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- volume control
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set PCM 6-")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set PCM 6+")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 5%-")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 5%+")
     , ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle")
-    , ((modMask .|. shiftMask, xK_m), spawn "amixer -q set PCM 0")
+    , ((modMask .|. shiftMask, xK_m), spawn "amixer -q set Master 0")
 
     -- focus
     , ((modMask, xK_Tab ), windows W.focusDown)

@@ -16,6 +16,6 @@ Config { font = "-*-montecarlo-medium-r-normal-*-11-*-*-*-c-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{%battery% | %multicpu% | %memory% | %coretemp% | %eth0% | %vol% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %multicpu% | %memory% | %coretemp% | %eth0% | %vol% | <fc=#ee9a00>%date%</fc>"
        }
 

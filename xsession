@@ -2,9 +2,8 @@ if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
-PATH=~/.cabal/bin:$PATH
-
-amixer -q set PCM 0
+amixer -q set Master 0
+amixer -q set Speaker 0
 xbindkeys
 
 # Dropbox
@@ -16,5 +15,7 @@ urxvtd -q -f -o
 setxkbmap us -variant intl
 xmodmap ~/.xmodmap
 
+eval `ssh-agent`
+
 # Starts xmonad/gnome
-exec ~/.cabal/bin/xmonad
+exec xmonad
