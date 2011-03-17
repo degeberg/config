@@ -15,3 +15,6 @@ ln -s gitconfig ~/.gitconfig
 ln -s screenrc ~/.screenrc
 ln -s xmobarrc ~/.xmobarrc
 ln -s xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+
+# other
+ln -s ~/.xsession ~/.xinitrc
