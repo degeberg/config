@@ -123,3 +123,12 @@ alias pacreps='pacman -Ss'             # Search for package(s) in the repositori
 alias pacloc='pacman -Qi'              # Display information about a given package in the local database
 alias paclocs='pacman -Qs'             # Search for package(s) in the local database
 
+
+bindkey "\e[1~" beginning-of-line # Home
+bindkey "\e[4~" end-of-line # End
+bindkey "\e[5~" beginning-of-history # PageUp
+bindkey "\e[7~" beginning-of-line # Home
+bindkey "\e[8~" end-of-line # End
+bindkey "\e[5C" forward-word
+bindkey "\e[5D" backward-word
+bindkey "\e[3~" delete-char # Del
