@@ -1,20 +1,22 @@
 #!/bin/sh
 
+DIR=`pwd`
+
 # directories
-ln -s vim ~/.vim
+ln -s $DIR/vim ~/.vim
 mkdir -p ~/.xmonad
 
 # files
-ln -s Xdefaults ~/.Xdefaults
-ln -s vimrc ~/.vimrc
-ln -s zshrc ~/.zshrc
-ln -s xmodmap ~/.xmodmap
-ln -s xbindkeysrc ~/.xbindkeysrc
-ln -s xsession ~/.xsession
-ln -s gitconfig ~/.gitconfig
-ln -s screenrc ~/.screenrc
-ln -s xmobarrc ~/.xmobarrc
-ln -s xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s $DIR/Xdefaults ~/.Xdefaults
+ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/zshrc ~/.zshrc
+ln -s $DIR/xmodmap ~/.xmodmap
+ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
+ln -s $DIR/xsession ~/.xsession
+ln -s $DIR/gitconfig ~/.gitconfig
+ln -s $DIR/screenrc ~/.screenrc
+ln -s $DIR/xmobarrc ~/.xmobarrc
+ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
 # other
 ln -s ~/.xsession ~/.xinitrc
