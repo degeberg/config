@@ -4,6 +4,7 @@ DIR=`pwd`
 
 # directories
 ln -s $DIR/vim ~/.vim
+ln -s $DIR/mplayer ~/.mplayer
 mkdir -p ~/.xmonad
 
 # files
