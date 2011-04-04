@@ -132,3 +132,10 @@ bindkey "\e[8~" end-of-line # End
 bindkey "\e[5C" forward-word
 bindkey "\e[5D" backward-word
 bindkey "\e[3~" delete-char # Del
+
+if [ -f $HOME/bin/z.sh ]; then
+    . $HOME/bin/z.sh
+    function precmd () {
+        z --add "$(pwd -P)"
+    }
+fi
