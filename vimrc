@@ -19,6 +19,7 @@ set modeline
 
 set number
 nmap <F3> :set invnumber<CR>
+nmap <F4> :set rnu!<CR>
 
 nmap <F5> :NERDTreeToggle<CR>
 nmap <F6> :TlistToggle<CR>
@@ -27,7 +28,6 @@ set ignorecase
 set smartcase
 
 nmap <F7> :set invspell<CR>
-nmap <F4> za
 
 set foldmethod=marker
 
