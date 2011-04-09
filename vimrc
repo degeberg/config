@@ -49,9 +49,6 @@ endif
 set wildignore=*.o,*.pyc,*~
 set tags=tags;/
 
-" Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
 set cul
 set splitright
 set splitbelow
