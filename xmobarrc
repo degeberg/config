@@ -11,11 +11,12 @@ Config { font = "-*-montecarlo-medium-r-normal-*-11-*-*-*-c-*-*-*"
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     , Run Com "/home/daniel/bin/xmobar_volume.sh" [] "vol" 2
+                    , Run Com "/home/daniel/bin/xmobar_pacman.sh" [] "pacman" 60
                     , Run BatteryP ["BAT0"] ["-t","Bat: <left>%","-L","30","-H","50","-l","red","-n","orange","-h","green"] 10
                     , Run CoreTemp ["-L","40","-H","60","-l","lightblue","-h","red"] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %coretemp% | %eth0% | %vol% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %pacman%%battery% | %multicpu% | %memory% | %coretemp% | %eth0% | %vol% | <fc=#ee9a00>%date%</fc>"
        }
 
