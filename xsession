@@ -19,5 +19,7 @@ xmodmap ~/.xmodmap
 
 eval `ssh-agent`
 
+start-pulseaudio-x11
+
 # Starts xmonad/gnome
 exec xmonad
