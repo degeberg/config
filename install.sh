@@ -10,6 +10,7 @@ mkdir -p ~/.xmonad
 # files
 ln -s $DIR/Xdefaults ~/.Xdefaults
 ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/gvimrc ~/.gvimrc
 ln -s $DIR/zshrc ~/.zshrc
 ln -s $DIR/xmodmap ~/.xmodmap
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
