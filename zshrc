@@ -24,3 +24,5 @@ plugins=(git pacman rxvt-unicode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+unsetopt correct_all
