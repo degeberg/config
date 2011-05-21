@@ -26,3 +26,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 unsetopt correct_all
+
+# fix terminal on remote systems
+if [ $(hostname) != "daniel-laptop" ] && [ $TERM = "rxvt-unicode-256color" ]; then
+    export TERM=rxvt-unicode
+fi
