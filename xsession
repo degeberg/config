@@ -3,7 +3,9 @@ if [ -d $HOME/bin ]; then
 fi
 
 amixer -q set Master 0
-amixer -q set Speaker 0
+amixer -q set Master off
+amixer -c 0 -q set Speaker 0
+
 xbindkeys
 
 # Dropbox
@@ -14,12 +16,14 @@ urxvtd -q -f -o
 
 xsetroot -cursor_name left_ptr
 
-setxkbmap us -variant intl
+setxkbmap us -variant intl -option terminate:ctrl_alt_bksp
 xmodmap ~/.xmodmap
 
 eval `ssh-agent`
 
 start-pulseaudio-x11
+
+/usr/lib/notification-daemon-1.0/notification-daemon &
 
 # Starts xmonad/gnome
 exec xmonad
