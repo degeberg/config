@@ -20,7 +20,7 @@ import Graphics.X11.ExtraTypes.XorgDefault
 
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 myBar = "xmobar"
-myTerminal = "urxvt"
+myTerminal = "urxvtc"
 
 main = do xmproc <- spawnPipe myBar
           xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
