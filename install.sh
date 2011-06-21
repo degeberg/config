@@ -18,6 +18,7 @@ ln -s $DIR/xsession ~/.xsession
 ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/screenrc ~/.screenrc
 ln -s $DIR/xmobarrc ~/.xmobarrc
+ln -s $DIR/pentadactylrc ~/.pentadactylrc
 ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 
 # other
