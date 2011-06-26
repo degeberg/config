@@ -24,8 +24,11 @@ ln -s ~/.xsession ~/.xinitrc
 # other config repositories
 cd ~/projects
 
-git clone git://github.com/degeberg/startervim.git
-(cd startervim; ./install.sh)
+if [ ! -d startervim ]; then
+    git clone git://github.com/degeberg/startervim.git
+    (cd startervim; ./install.sh)
+fi
 
-git clone git://github.com/degeberg/oh-my-zsh.git
-(cd oh-my-zsh; ./install.sh)
+if [ ! -d oh-my-zsh ]; then
+    git clone git://github.com/degeberg/oh-my-zsh.git
+fi
