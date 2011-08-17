@@ -4,7 +4,7 @@ DIR=`pwd`
 
 # directories
 ln -s $DIR/mplayer ~/.mplayer
-mkdir -p ~/.xmonad
+mkdir -p ~/.xmonad ~/.ssh
 
 # files
 ln -s $DIR/Xdefaults ~/.Xdefaults
@@ -17,6 +17,7 @@ ln -s $DIR/screenrc ~/.screenrc
 ln -s $DIR/xmobarrc ~/.xmobarrc
 ln -s $DIR/pentadactylrc ~/.pentadactylrc
 ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s $DIR/ssh/config ~/.ssh/config
 
 # other
 ln -s ~/.xsession ~/.xinitrc
