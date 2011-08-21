@@ -19,7 +19,7 @@ export ZSH_THEME="kphoen"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pacman rxvt-unicode)
+plugins=(git pacman rxvt-unicode z)
 
 source $ZSH/oh-my-zsh.sh
 
