@@ -25,5 +25,9 @@ start-pulseaudio-x11
 
 /usr/lib/notification-daemon-1.0/notification-daemon &
 
+if [ -f ~/background.jpg ]; then
+    feh --bg-scale ~/background.jpg
+fi
+
 # Starts xmonad/gnome
 exec xmonad
