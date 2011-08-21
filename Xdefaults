@@ -41,3 +41,6 @@ URxvt*scrollstyle: rxvt
 
 URxvt*modifier: alt
 URxvt.urgentOnBell: true
+
+urxvt*transparent: true
+urxvt*shading: 15
