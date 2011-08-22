@@ -64,3 +64,9 @@ Host degeberg
   CompressionLevel 9
   Ciphers arcfour
 
+Host degeberg2
+  Hostname degeberg.com
+  Port 10022
+  KeepAlive yes
+  Compression yes
+  CompressionLevel 9
