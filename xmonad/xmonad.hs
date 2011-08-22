@@ -28,7 +28,7 @@ main = do xmproc <- spawnPipe myBar
                    , layoutHook         = myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
-                   , workspaces         = map show [0 .. 9 :: Int] ++ ["a", "b", "c", "d"]
+                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"]
                    , logHook            = dynamicLogWithPP $ myPP xmproc
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
@@ -51,6 +51,7 @@ myManageHook = composeAll
     , className =? "Pidgin" --> doShift "d"
     , className =? "Skype" --> doShift "d"
     , className =? "Keepassx" --> doShift "b"
+    , className =? "Firefox" --> doShift "web"
     , title     =? "VLC media player" --> doFloat
     , title     =? "VLC (XVideo output)" --> doFloat] <+> manageScratchPad
 
@@ -107,8 +108,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- switch between current and previous workspace
     , ((modMask .|. shiftMask , xK_w ), toggleWS )
 
-
+    -- scratch pad
     , ((0, xK_Meta_R), scratchpadSpawnActionTerminal myTerminal)
+
+    -- media keys
+    , ((0, xF86XK_AudioPlay), spawn "mpc -q toggle")
+    , ((0, xF86XK_AudioPrev), spawn "mpc -q prev")
+    , ((0, xF86XK_AudioNext), spawn "mpc -q next")
+    , ((0, xF86XK_AudioStop), spawn "mpc -q stop")
 
     -- resizing
     , ((modMask, xK_h ), sendMessage Shrink)

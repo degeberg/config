@@ -5,11 +5,12 @@ ao=pulse
 
 framedrop=1
 
-cache=100000
+cache=1000000
 
 slang=en,eng,da,dan
 sub-fuzziness=1
 
 stop-xscreensaver=1
 
-alang=en,eng
+lang=en,eng,
+alang=en,eng,
