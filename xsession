@@ -23,7 +23,8 @@ eval `ssh-agent`
 
 start-pulseaudio-x11
 
-/usr/lib/notification-daemon-1.0/notification-daemon &
+#/usr/lib/notification-daemon-1.0/notification-daemon &
+dunst -geometry x5 -to 5 -format "%s: %b" &
 
 if [ -f ~/background.jpg ]; then
     feh --bg-scale ~/background.jpg
