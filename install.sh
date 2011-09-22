@@ -30,6 +30,14 @@ if [ ! -d startervim ]; then
     (cd startervim; ./install.sh)
 fi
 
+if [ ! -d LS_COLORS ]; then
+    git clone https://github.com/trapd00r/LS_COLORS.git
+fi
+
+if [ ! -d zsh-syntax-highlighting-filetypes ]; then
+    git clone https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git
+fi
+
 if [ ! -d oh-my-zsh ]; then
     git clone git://github.com/degeberg/oh-my-zsh.git
 fi

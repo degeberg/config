@@ -19,7 +19,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pacman rxvt-unicode z)
+plugins=(git pacman rxvt-unicode z zsh-syntax-highlighting-filetypes)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,7 +27,3 @@ source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 
-# fix terminal on remote systems
-if [ $(hostname) != "daniel-laptop" ] && [ $(hostname) != "daniel-eee" ] && [ $TERM = "rxvt-unicode-256color" ]; then
-    export TERM=rxvt-unicode
-fi
