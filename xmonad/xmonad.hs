@@ -14,6 +14,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Accordion
 import XMonad.Layout
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Graphics.X11.ExtraTypes.XorgDefault
@@ -126,6 +127,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- quit, or restart
     , ((modMask .|. shiftMask, xK_q ), io (exitWith ExitSuccess))
     , ((modMask , xK_q ), restart "xmonad" True)
+
+    , ((modMask, xK_g), goToSelected defaultGSConfig)
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
