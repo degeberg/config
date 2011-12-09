@@ -33,4 +33,4 @@ if [ -f ~/background.jpg ]; then
 fi
 
 # Starts xmonad/gnome
-exec xmonad
+exec ck-launch-session xmonad

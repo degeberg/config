@@ -18,6 +18,7 @@ import XMonad.Actions.GridSelect
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Graphics.X11.ExtraTypes.XorgDefault
+import qualified XMonad.Layout.Tabbed as Tabbed
 
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 myBar = "xmobar"
@@ -26,7 +27,7 @@ myTerminal = "urxvtc"
 main = do xmproc <- spawnPipe myBar
           xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
                    { manageHook         = myManageHook <+> manageDocks <+> manageHook defaultConfig
-                   , layoutHook         = myLayout
+                   , layoutHook         = smartBorders $ myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
                    , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"]
@@ -65,12 +66,22 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     l = 1 - w   -- distance from left edge, 0%
 
 -- Layouts
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| noBorders Full)
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme)
   where
     tiled = Tall 1 (3/100) (1/2)
-    nmaster = 1
-    ratio   = 1/2
-    delta   = 3/100
+
+instance Tabbed.Shrinker Tabbed.CustomShrink where
+  shrinkIt _ _ = []
+
+myTabbedTheme =
+  Tabbed.defaultTheme
+  { Tabbed.inactiveBorderColor = "#000000"
+  , Tabbed.inactiveColor = "#000000"
+  , Tabbed.activeColor = "#BB0000"
+  , Tabbed.activeBorderColor = "#BB0000"
+  , Tabbed.urgentBorderColor = "#FF0000"
+  , Tabbed.decoHeight = 3
+  }
 
 -- Keys
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
