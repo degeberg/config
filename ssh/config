@@ -70,3 +70,7 @@ Host degeberg
   KeepAlive yes
   Compression yes
   CompressionLevel 9
+
+Host apollo
+  Hostname apollo.pwnies.dk
+  User degeberg
