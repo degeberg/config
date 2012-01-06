@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-DIR=`pwd`
+DIR=$(pwd)
 
 # directories
 ln -s $DIR/mplayer ~/.mplayer
@@ -19,16 +19,18 @@ ln -s $DIR/pentadactylrc ~/.pentadactylrc
 ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $DIR/ssh/config ~/.ssh/config
 
+# vim
+ln -s $DIR/vim ~/.vim
+ln -s $DIR/vimrc ~/.vimrc
+if [ ! -d ~/.vim/bundle/vundle ]; then
+    git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
 # other
 ln -s ~/.xsession ~/.xinitrc
 
 # other config repositories
 cd ~/projects
-
-if [ ! -d startervim ]; then
-    git clone git://github.com/degeberg/startervim.git
-    (cd startervim; ./install.sh)
-fi
 
 if [ ! -d LS_COLORS ]; then
     git clone https://github.com/trapd00r/LS_COLORS.git
