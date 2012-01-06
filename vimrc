@@ -1,4 +1,4 @@
-set nocompatible
+ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -9,6 +9,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'molok/vim-smartusline'
 filetype plugin indent on
 
 set lazyredraw
