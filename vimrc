@@ -5,11 +5,15 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 Bundle 'msanders/snipmate.vim'
 Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'molok/vim-smartusline'
+Bundle 'a.vim'
+Bundle 'matchit.zip'
+Bundle 'taglist.vim'
 filetype plugin indent on
 
 set lazyredraw
@@ -145,3 +149,5 @@ nmap <silent> <leader>s :set spell!<CR>
 command W w !sudo tee % > /dev/null
 nmap <silent> <leader>n :set number!<cr>
 nmap <silent> <leader>r :set relativenumber!<cr>
+nmap <silent> <leader>a :A<cr>
+map <silent> <f3> :TlistToggle<cr>
