@@ -127,8 +127,6 @@ if has("gui_running")
 endif
 
 " Keyboard mapping
-nn <leader>n <esc>:set number! number?<cr>
-nmap <silent> <leader>s :set spell!<CR>
 map <f2> :make<cr>
 nnoremap j gj
 nnoremap k gk
@@ -145,3 +143,5 @@ nmap <Leader>bi :BundleInstall<CR>
 nmap <Leader>bi! :BundleInstall!<CR>
 nmap <silent> <leader>s :set spell!<CR>
 command W w !sudo tee % > /dev/null
+nmap <silent> <leader>n :set number!<cr>
+nmap <silent> <leader>r :set relativenumber!<cr>
