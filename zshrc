@@ -27,3 +27,4 @@ source $ZSH/oh-my-zsh.sh
 
 unsetopt correct_all
 
+export TERMINFO=~/.terminfo:$TERMINFO
