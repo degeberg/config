@@ -1,4 +1,4 @@
- set nocompatible
+set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -10,7 +10,8 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'molok/vim-smartusline'
+"Bundle 'molok/vim-smartusline'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'a.vim'
 Bundle 'matchit.zip'
 Bundle 'taglist.vim'
@@ -35,14 +36,14 @@ colorscheme molokai
 syntax on
 
 set visualbell
-set shm=atIWswxrnmlf
+"set shm=atIWswxrnmlf
 set ruler
 set title
 set titlestring=%f%(\ [%M]%)     " Show file name at the title
 set numberwidth=1
 set report=2
 set laststatus=2
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}[%l,%v][%p%%]
+"set statusline=%F%m%r%h%w\ (%{&ff}){%Y}[%l,%v][%p%%]
 set showcmd
 set showmode
 set winminheight=0
