@@ -1,13 +1,8 @@
-#ControlMaster auto
-#ControlPath /tmp/ssh_mux_%h_%p_%r
-#ControlPersist 4h
+ControlMaster auto
+ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
+ControlPersist 15m
 
 ForwardAgent yes
-
-Host rkg
-  Hostname 10.41.41.1
-  Ciphers arcfour
-  User daniel
 
 Host kantine
   Hostname kantine.diku.dk
@@ -17,27 +12,23 @@ Host hygge
   Hostname hygge.local
   User daniel
 
+Host home
+  Hostname home.degeberg.com
+  KeepAlive yes
+  User daniel
+  Port 22
+
 Host eee
-  Hostname daniel-eee.local
+  Hostname 10.2.0.1
   KeepAlive yes
-  Port 4221
+  Port 22
   Ciphers arcfour
 
-Host eee.home.degeberg.com
-  Hostname home.degeberg.com
+Host thinkpad
+  Hostname 10.2.0.6
   KeepAlive yes
-  Port 4221
-
-Host laptop
-  Hostname daniel-laptop.local
-  KeepAlive yes
-  Port 4222
+  Port 22
   Ciphers arcfour
-
-Host laptop.home.degeberg.com
-  Hostname home.degeberg.com
-  KeepAlive yes
-  Port 4222
 
 Host ask
   Hostname ask.diku.dk
@@ -56,14 +47,6 @@ Host tyr
   User egeberg
   KeepAlive yes
 
-Host degeberg2
-  Hostname 10.8.0.1
-  Port 10022
-  KeepAlive yes
-  Compression yes
-  CompressionLevel 9
-  Ciphers arcfour
-
 Host degeberg
   Hostname degeberg.com
   Port 10022
@@ -74,3 +57,10 @@ Host degeberg
 Host apollo
   Hostname apollo.pwnies.dk
   User degeberg
+
+Host artemis
+  Hostname artemis.pwnies.dk
+  User daniel
+
+Host github.com
+  ControlMaster no

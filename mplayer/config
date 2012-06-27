@@ -1,11 +1,8 @@
-vo=vdpau,
-vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,
-
 ao=pulse
 
 framedrop=1
 
-cache=1000000
+cache=10000
 
 slang=en,eng,da,dan
 sub-fuzziness=1

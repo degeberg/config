@@ -1,4 +1,4 @@
-"urxvtc"
+"urxvt"
   mod4 + shift + Return
 
 "i3lock -c 000000"
@@ -13,11 +13,8 @@
 "brightness down"
   XF86MonBrightnessDown
 
-"sleep.sh"
+"sudo pm-suspend"
   XF86Sleep
 
 "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
   mod4 + p
-
-"rimshot"
-  XF86AudioMedia

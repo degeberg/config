@@ -15,6 +15,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'a.vim'
 Bundle 'matchit.zip'
 Bundle 'taglist.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'jnwhiteh/vim-golang'
 filetype plugin indent on
 
 set lazyredraw
@@ -47,6 +49,19 @@ set laststatus=2
 set showcmd
 set showmode
 set winminheight=0
+
+" auto complete
+let g:neocomplcache_enable_at_startup = 0
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -116,7 +131,9 @@ set formatprg=par
 if has("gui_running")
     colorscheme molokai
     set cursorline
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+    let g:Powerline_symbols = 'fancy'
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
 
     " Don't show toolbar and scrollbars
     set go-=T

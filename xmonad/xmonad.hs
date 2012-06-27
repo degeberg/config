@@ -13,8 +13,16 @@ import XMonad.Util.Scratchpad
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Accordion
 import XMonad.Layout
+import XMonad.Layout.PerWorkspace
 import XMonad.Actions.CycleWS
 import XMonad.Actions.GridSelect
+import XMonad.Actions.TopicSpace
+import XMonad.Actions.DynamicWorkspaces
+  (addWorkspacePrompt, renameWorkspace, removeWorkspace, addWorkspace)
+import XMonad.Actions.WithAll (killAll)
+import XMonad.Prompt
+import XMonad.Prompt.Workspace
+import XMonad.Prompt.Input
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Graphics.X11.ExtraTypes.XorgDefault
@@ -22,7 +30,7 @@ import qualified XMonad.Layout.Tabbed as Tabbed
 
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 myBar = "xmobar"
-myTerminal = "urxvtc"
+myTerminal = "urxvt"
 
 main = do xmproc <- spawnPipe myBar
           xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
@@ -30,7 +38,8 @@ main = do xmproc <- spawnPipe myBar
                    , layoutHook         = smartBorders $ myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
-                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"]
+                   --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
+                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d"]
                    , logHook            = dynamicLogWithPP $ myPP xmproc
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
@@ -57,6 +66,33 @@ myManageHook = composeAll
     , title     =? "VLC media player" --> doFloat
     , title     =? "VLC (XVideo output)" --> doFloat] <+> manageScratchPad
 
+myTopics :: [Topic]
+myTopics =
+    [ "dashboard" -- the first one
+    , "web", "im", "bachelorproject", "movie", "mail"
+    ]
+
+shell = spawn myTerminal
+browser s = spawn ("firefox " ++ s)
+edit s = spawn ("gvim " ++ s)
+ssh s = spawn ("urxvt -e ssh " ++ s)
+
+myTopicConfig :: TopicConfig
+myTopicConfig = defaultTopicConfig
+    { topicDirs = M.fromList $
+        [ ("bachproj", "~/projects/bachelorproject/report") ]
+    , defaultTopicAction = const $ shell
+    , defaultTopic = "dashboard"
+    , topicActions = M.fromList $
+        [ ("web",       browser "")
+        , ("im",        ssh "degeberg")
+        , ("movie",     spawn "xbmc")
+        , ("bachproj",  edit "~/projects/bachelorproject/master.tex" >> shell)
+        , ("mail",      spawn "urxvt -e mutt")
+        ]
+    }
+
+
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
   where
@@ -66,7 +102,8 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     l = 1 - w   -- distance from left edge, 0%
 
 -- Layouts
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme)
+myLayout = onWorkspaces ["movie", "im"] (avoidStruts $ noBorders Full) $
+           avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme)
   where
     tiled = Tall 1 (3/100) (1/2)
 
@@ -83,6 +120,17 @@ myTabbedTheme =
   , Tabbed.decoHeight = 3
   }
 
+myXPConfig = defaultXPConfig
+  { fgColor = "#a8a3f7"
+  -- , bgColor = "#ff3c6d"}
+  , bgColor = "#3f3c6d"}
+
+goto :: Topic -> X ()
+goto = switchTopic myTopicConfig
+
+promptedGoto :: X ()
+promptedGoto = workspacePrompt myXPConfig goto
+
 -- Keys
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
@@ -92,6 +140,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- layouts
     , ((modMask, xK_space ), sendMessage NextLayout)
     , ((modMask .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    , ((modMask, xK_a), currentTopicAction myTopicConfig)
+    , ((modMask, xK_d), promptedGoto)
+    , ((modMask .|. shiftMask, xK_n), addWorkspacePrompt myXPConfig >> shell)
+    , ((modMask .|. shiftMask, xK_BackSpace), killAll >> removeWorkspace)
 
     -- volume control
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 5%-")
