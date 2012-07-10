@@ -17,6 +17,7 @@ Bundle 'matchit.zip'
 Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
 
 set lazyredraw
@@ -70,7 +71,7 @@ autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " Command-mode completion
 set wildmenu
-set wildignore=*.o,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp
+set wildignore=*.o,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp,*.log,*.aux,*.out,*.make,*.bbl,*.blg,*.d,*.fls
 set wildmode=list:full
 
 " Insert-mode completion
@@ -169,3 +170,8 @@ nmap <silent> <leader>n :set number!<cr>
 nmap <silent> <leader>r :set relativenumber!<cr>
 nmap <silent> <leader>a :A<cr>
 map <silent> <f3> :TlistToggle<cr>
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
