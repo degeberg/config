@@ -18,6 +18,15 @@ Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/ctrlp.vim'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'Shougo/vimproc'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'ujihisa/neco-ghc'
+Bundle 'scrooloose/syntastic'
+Bundle 'adimit/prolog.vim'
+Bundle 'jimenezrick/vimerl'
+
+
 filetype plugin indent on
 
 set lazyredraw
@@ -175,3 +184,11 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+au Bufenter *.hs compiler ghc
+
+let g:haddock_browser = "/usr/bin/firefox"
+let g:haddock_dir = "/usr/share/doc/ghc/html"
+let g:ghc = "/usr/bin/ghc"
+
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync

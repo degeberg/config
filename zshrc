@@ -30,3 +30,7 @@ unsetopt correct_all
 if [ "x"$SSH_CLIENT != "x" ]; then
     export PS1="[remote] $PS1"
 fi
+
+export PATH=~/.cabal/bin:$PATH
+
+source /etc/profile.d/autojump.zsh

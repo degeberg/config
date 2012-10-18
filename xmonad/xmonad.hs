@@ -88,7 +88,7 @@ myTopicConfig = defaultTopicConfig
         , ("im",        ssh "degeberg")
         , ("movie",     spawn "xbmc")
         , ("bachproj",  edit "~/projects/bachelorproject/master.tex" >> shell)
-        , ("mail",      spawn "urxvt -e mutt")
+        , ("mail",      spawn "thunderbird")
         ]
     }
 
@@ -151,6 +151,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 5%+")
     , ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle")
     , ((modMask .|. shiftMask, xK_m), spawn "amixer -q set Master 0")
+    , ((modMask, xK_Down), spawn "amixer -q set Master 5%-")
+    , ((modMask, xK_Up), spawn "amixer -q set Master 5%+")
 
     -- focus
     , ((modMask, xK_Tab ), windows W.focusDown)
