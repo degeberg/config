@@ -19,7 +19,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pacman rxvt-unicode z zsh-syntax-highlighting-filetypes)
+plugins=(git pacman rxvt-unicode z zsh-syntax-highlighting-filetypes autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,5 +32,3 @@ if [ "x"$SSH_CLIENT != "x" ]; then
 fi
 
 export PATH=~/.cabal/bin:$PATH
-
-source /etc/profile.d/autojump.zsh
