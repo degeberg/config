@@ -6,6 +6,7 @@ DIR=$(pwd)
 ln -s $DIR/mplayer ~/.mplayer
 mkdir -p ~/.xmonad ~/.ssh
 mkdir -p ~/.config/dunst
+mkdir -p ~/.ncmpcpp
 
 # files
 ln -s $DIR/Xdefaults ~/.Xdefaults
@@ -20,6 +21,7 @@ ln -s $DIR/pentadactylrc ~/.pentadactylrc
 ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $DIR/ssh/config ~/.ssh/config
 ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
+ln -s $DIR/ncmpcpp/config ~/.ncmpcpp/config
 
 # vim
 ln -s $DIR/vim ~/.vim
