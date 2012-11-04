@@ -22,6 +22,7 @@ ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $DIR/ssh/config ~/.ssh/config
 ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
 ln -s $DIR/ncmpcpp/config ~/.ncmpcpp/config
+ln -s $DIR/ghci ~/.ghci
 
 # vim
 ln -s $DIR/vim ~/.vim
