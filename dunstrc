@@ -1,5 +1,5 @@
 [global]
-    font = Monospace-8
+    font = Ubuntu Mono-12
 
     # The format of the message. Possible variables are:
     # %a appname
