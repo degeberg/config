@@ -8,43 +8,39 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run
-import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Scratchpad
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Accordion
-import XMonad.Layout
 import XMonad.Layout.PerWorkspace
 import XMonad.Actions.CycleWS
 import XMonad.Actions.GridSelect
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaces
-  (addWorkspacePrompt, renameWorkspace, removeWorkspace, addWorkspace)
+  (addWorkspacePrompt, removeWorkspace)
 import XMonad.Actions.WithAll (killAll)
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
-import XMonad.Prompt.Input
-import System.IO
 import Graphics.X11.ExtraTypes.XF86
-import Graphics.X11.ExtraTypes.XorgDefault
 import qualified XMonad.Layout.Tabbed as Tabbed
 
+dmenuCmd, myBar, myTerminal :: String
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 myBar = "xmobar"
 myTerminal = "urxvt"
 
+main :: IO ()
 main = do xmproc <- spawnPipe myBar
-          xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
+          xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
                    { manageHook         = myManageHook <+> manageDocks <+> manageHook defaultConfig
-                   , layoutHook         = smartBorders $ myLayout
+                   , layoutHook         = smartBorders myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
                    --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
-                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d"]
+                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d", "movie"]
                    , logHook            = dynamicLogWithPP $ myPP xmproc
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
-                   , borderWidth         = 1
-                   , startupHook        = (setWMName "LG3D" >> spawn "killall xbindkeys; xbindkeys")
+                   , borderWidth        = 1
+                   , startupHook        = setWMName "LG3D" >> spawn "killall xbindkeys; xbindkeys"
                    }
 
 myPP h = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
@@ -66,28 +62,23 @@ myManageHook = composeAll
     , title     =? "VLC media player" --> doFloat
     , title     =? "VLC (XVideo output)" --> doFloat] <+> manageScratchPad
 
-myTopics :: [Topic]
-myTopics =
-    [ "dashboard" -- the first one
-    , "web", "im", "bachelorproject", "movie", "mail"
-    ]
-
+shell ::  X ()
 shell = spawn myTerminal
+
+browser, edit, ssh ::  String -> X ()
 browser s = spawn ("firefox " ++ s)
 edit s = spawn ("gvim " ++ s)
 ssh s = spawn ("urxvt -e ssh " ++ s)
 
 myTopicConfig :: TopicConfig
 myTopicConfig = defaultTopicConfig
-    { topicDirs = M.fromList $
-        [ ("bachproj", "~/projects/bachelorproject/report") ]
-    , defaultTopicAction = const $ shell
+    { topicDirs = M.fromList []
+    , defaultTopicAction = const shell
     , defaultTopic = "dashboard"
-    , topicActions = M.fromList $
+    , topicActions = M.fromList
         [ ("web",       browser "")
         , ("im",        ssh "degeberg")
         , ("movie",     spawn "xbmc")
-        , ("bachproj",  edit "~/projects/bachelorproject/master.tex" >> shell)
         , ("mail",      spawn "thunderbird")
         ]
     }
@@ -191,10 +182,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     --, ((modMask .|. shiftMask, xK_l ), sendMessage MirrorExpand)
 
     -- quit, or restart
-    , ((modMask .|. shiftMask, xK_q ), io (exitWith ExitSuccess))
+    , ((modMask .|. shiftMask, xK_q ), io exitSuccess)
     , ((modMask , xK_q ), restart "xmonad" True)
 
     , ((modMask, xK_g), goToSelected defaultGSConfig)
+
+     ,((modMask, xK_b     ), sendMessage ToggleStruts)
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
