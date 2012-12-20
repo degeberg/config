@@ -44,3 +44,14 @@ URxvt.urgentOnBell: true
 
 urxvt*transparent: true
 urxvt*shading: 15
+
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1
+URxvt.colorUL: #4682B4
+
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.url-select.launcher:   /usr/bin/firefox -new-tab
+URxvt.url-select.underline: true
+
