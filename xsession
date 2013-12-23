@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
@@ -28,9 +30,13 @@ dunst &
 
 #/usr/share/android-notifier-desktop/run.sh -t &
 
-if [ -f ~/background.jpg ]; then
-    feh --bg-scale ~/background.jpg
-fi
+background
+
+#gtk-redshift -l 55.7:12.6 &
+
+export LEDGER=~/regnskab/regnskab.journal
+
+arbtt-capture --sample-rate=10 &
 
 # Starts xmonad/gnome
 exec xmonad

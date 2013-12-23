@@ -1,4 +1,4 @@
-mpd_music_dir = "~/.mpd/music"
+mpd_music_dir = "/media/music"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 playlist_disable_highlight_delay = "0"

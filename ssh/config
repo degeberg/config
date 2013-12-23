@@ -1,4 +1,4 @@
-ControlMaster auto
+#ControlMaster auto
 ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
 ControlPersist 15m
 
@@ -49,7 +49,7 @@ Host tyr
 
 Host degeberg
   Hostname degeberg.com
-  Port 10022
+  Port 22
   KeepAlive yes
   Compression yes
   CompressionLevel 9
@@ -64,3 +64,19 @@ Host artemis
 
 Host github.com
   ControlMaster no
+
+Host cloud.pwnies.dk
+    User daniel
+    ProxyCommand none
+    ForwardAgent yes
+
+Host *.pwnies.dk
+    ProxyCommand ssh cloud.pwnies.dk nc -w 1 %h %p
+    ForwardAgent yes
+
+Host git.pwnies.dk
+    User git
+
+Host gnu
+    User dhe
+    Hostname gnu.jobsafari.dk

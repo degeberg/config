@@ -12,6 +12,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 "Bundle 'molok/vim-smartusline'
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/powerline'
 Bundle 'a.vim'
 Bundle 'matchit.zip'
 Bundle 'taglist.vim'
@@ -25,6 +26,9 @@ Bundle 'ujihisa/neco-ghc'
 Bundle 'scrooloose/syntastic'
 Bundle 'adimit/prolog.vim'
 Bundle 'jimenezrick/vimerl'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'paradigm/TextObjectify'
+Bundle 'pbrisbin/html-template-syntax'
 
 
 filetype plugin indent on
@@ -142,8 +146,9 @@ if has("gui_running")
     colorscheme molokai
     set cursorline
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-    let g:Powerline_symbols = 'fancy'
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
+    "let g:Powerline_symbols = 'fancy'
+    "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
 
     " Don't show toolbar and scrollbars
     set go-=T

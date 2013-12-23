@@ -21,6 +21,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Workspace
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.Layout.Tabbed as Tabbed
+import XMonad.Hooks.EwmhDesktops
 
 dmenuCmd, myBar, myTerminal :: String
 dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
@@ -29,14 +30,14 @@ myTerminal = "urxvt"
 
 main :: IO ()
 main = do xmproc <- spawnPipe myBar
-          xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
+          xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig
                    { manageHook         = myManageHook <+> manageDocks <+> manageHook defaultConfig
                    , layoutHook         = smartBorders myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
                    --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
                    , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d", "movie"]
-                   , logHook            = dynamicLogWithPP $ myPP xmproc
+                   , logHook            = ((setWMName "LG3D") >> (dynamicLogWithPP $ myPP xmproc))
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
                    , borderWidth        = 1
@@ -77,8 +78,8 @@ myTopicConfig = defaultTopicConfig
     , defaultTopic = "dashboard"
     , topicActions = M.fromList
         [ ("web",       browser "")
-        , ("im",        ssh "degeberg")
-        , ("movie",     spawn "xbmc")
+        , ("im",        ssh "im@degeberg")
+        , ("movie",     spawn "/usr/bin/plexhometheater.sh")
         , ("mail",      spawn "thunderbird")
         ]
     }

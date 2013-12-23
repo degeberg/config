@@ -17,9 +17,11 @@ export DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want to disable autosetting terminal title.
 # export DISABLE_AUTO_TITLE="true"
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pacman rxvt-unicode z zsh-syntax-highlighting-filetypes autojump)
+plugins=(git pacman rxvt-unicode z autojump zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,5 +32,7 @@ unsetopt correct_all
 if [ "x"$SSH_CLIENT != "x" ]; then
     export PS1="[remote] $PS1"
 fi
+
+alias matlabnd="matlab -nodesktop -nosplash"
 
 export PATH=~/.cabal/bin:$PATH

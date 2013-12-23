@@ -1,6 +1,7 @@
 [user]
 	name = Daniel Egeberg
 	email = daniel.egeberg@gmail.com
+	signingkey = D0CF4FC4
 [color]
 	diff = auto
 	status = auto

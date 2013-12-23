@@ -12,3 +12,5 @@ keycode 162 = XF86AudioPlay
 keycode 154 = XF86AudioStop
 keycode 153 = XF86AudioNext
 keycode 144 = XF86AudioPrev
+
+keycode 94 = less greater
