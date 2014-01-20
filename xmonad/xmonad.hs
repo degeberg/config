@@ -139,12 +139,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_BackSpace), killAll >> removeWorkspace)
 
     -- volume control
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 5%-")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 5%+")
-    , ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle")
-    , ((modMask .|. shiftMask, xK_m), spawn "amixer -q set Master 0")
-    , ((modMask, xK_Down), spawn "amixer -q set Master 5%-")
-    , ((modMask, xK_Up), spawn "amixer -q set Master 5%+")
+    , ((0, xF86XK_AudioLowerVolume), spawn "pulsevol down")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "pulsevol up")
+    , ((0, xF86XK_AudioMute), spawn "pulsevol mute-toggle")
+    , ((modMask .|. shiftMask, xK_m), spawn "pulsevol set-volume 0")
+    , ((modMask, xK_Down), spawn "pulsevol down")
+    , ((modMask, xK_Up), spawn "pulsevol up")
 
     -- focus
     , ((modMask, xK_Tab ), windows W.focusDown)
