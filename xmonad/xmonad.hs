@@ -88,7 +88,7 @@ myTopicConfig = defaultTopicConfig
         , ("im",        ssh "degeberg")
         , ("movie",     spawn "xbmc")
         , ("bachproj",  edit "~/projects/bachelorproject/master.tex" >> shell)
-        , ("mail",      spawn "urxvt -e mutt")
+        , ("mail",      spawn "thunderbird")
         ]
     }
 

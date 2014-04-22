@@ -7,9 +7,6 @@ amixer -q set Master off
 
 xbindkeys
 
-# Dropbox
-dropbox start
-
 # start urxvt terminal daemon
 urxvtd -q -f -o
 
@@ -19,19 +16,11 @@ setxkbmap us -variant intl -option terminate:ctrl_alt_bksp
 xmodmap ~/.xmodmap
 
 eval `ssh-agent`
+ssh-add
 
 start-pulseaudio-x11
 
-#/usr/lib/notification-daemon-1.0/notification-daemon &
-#dunst -geometry x5 -to 5 -format "%s: %b" &
-
-#/usr/share/android-notifier-desktop/run.sh -t &
-
-if [ -f ~/background.jpg ]; then
-    feh --bg-scale ~/background.jpg
-fi
-
-gtk-redshift -l 55.7:12.6 &
+xsetroot -solid black
 
 # Starts xmonad/gnome
 exec xmonad

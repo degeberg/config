@@ -18,6 +18,9 @@ Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/ctrlp.vim'
+Bundle 'yko/mojo.vim'
+Bundle 'vim-perl/vim-perl'
+Bundle 'groenewege/vim-less'
 filetype plugin indent on
 
 set lazyredraw
@@ -132,9 +135,7 @@ set formatprg=par
 if has("gui_running")
     colorscheme molokai
     set cursorline
-    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
-    let g:Powerline_symbols = 'fancy'
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
 
     " Don't show toolbar and scrollbars
     set go-=T
@@ -175,3 +176,27 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+
+"define :Tidy command to run perltidy on visual selection || entire buffer"
+command -range=% -nargs=* Tidy <line1>,<line2>!perltidy
+
+"run :Tidy on entire buffer and return cursor to (approximate) original position"
+fun DoTidy()
+    let Pos = line2byte( line( "." ) )
+    :Tidy
+    exe "goto " . Pos
+endfun
+
+"shortcut for normal mode to run on entire buffer then return to current line"
+"au Filetype perl nmap <F4> :call DoTidy()<CR>
+nmap <F4> :call DoTidy()<CR>
+
+"shortcut for visual mode to run on the the current visual selection"
+"au Filetype perl vmap <F4> :Tidy<CR>
+vmap <F4> :Tidy<CR>
+
+
+let mojo_highlight_data = 0
+au BufRead,BufNewFile *.html.ep syn match perlStatementFiledesc "\<\%(jix_include\|include_css\|include_js\|render_page\)\>" nextgroup=perlGenericBlock skipwhite contained
+au BufRead,BufNewFile *.html.ep syn match perlStatementFiledesc "\<\%(jix_form_for\|jix_url_for\)\>" nextgroup=perlGenericBlock skipwhite contained
