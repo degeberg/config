@@ -3,4 +3,10 @@ set passkeys+='https://mail\.google\.com/mail':xsem!#rRaAvN[]{}z.IU=-gidac/?lujk
 set guioptions=bCrs
 set titlestring=Firefox
 
+style -name tabbrowser-height-fix chrome://* <<EOM
+[dactyl-australis=true] .tabbrowser-tabs {
+    max-height:       unset !important;
+}
+EOM
+
 " vim: ft=vim

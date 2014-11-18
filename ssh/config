@@ -8,21 +8,11 @@ Host kantine
   Hostname kantine.diku.dk
   User daniel
 
-Host hygge
-  Hostname hygge.local
-  User daniel
-
 Host home
   Hostname home.degeberg.com
   KeepAlive yes
   User daniel
   Port 22
-
-Host eee
-  Hostname 10.2.0.1
-  KeepAlive yes
-  Port 22
-  Ciphers arcfour
 
 Host thinkpad
   Hostname 10.2.0.6
@@ -80,3 +70,17 @@ Host git.pwnies.dk
 Host gnu
     User dhe
     Hostname gnu.jobsafari.dk
+
+Host ssh-diku-apl
+    User mzn808
+    KeepAlive yes
+    Hostname ssh-diku-apl.science.ku.dk
+
+Host gpu01-diku-apl gpu02-diku-apl gpu03-diku-apl gpu04-diku-apl
+    User mzn808
+    ForwardX11 yes
+    KeepAlive yes
+    ProxyCommand  ssh ssh-diku-apl netcat -w 120 %h %p
+
+Host hygge.kantinen.org
+    Port 443
