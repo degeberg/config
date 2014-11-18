@@ -1,38 +1,18 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/projects/oh-my-zsh
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="kphoen"
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pacman rxvt-unicode z autojump zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # Customize to your needs...
 
-unsetopt correct_all
+eval "$(fasd --init auto)"
 
-if [ "x"$SSH_CLIENT != "x" ]; then
-    export PS1="[remote] $PS1"
-fi
-
-alias matlabnd="matlab -nodesktop -nosplash"
-
-export PATH=~/.cabal/bin:$PATH
+alias matlabnd='matlab -nodesktop -nosplash'
+unalias rm

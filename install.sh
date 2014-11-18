@@ -10,7 +10,6 @@ mkdir -p ~/.ncmpcpp
 
 # files
 ln -s $DIR/Xdefaults ~/.Xdefaults
-ln -s $DIR/zshrc ~/.zshrc
 ln -s $DIR/xmodmap ~/.xmodmap
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
 ln -s $DIR/xsession ~/.xsession
@@ -37,14 +36,23 @@ ln -s ~/.xsession ~/.xinitrc
 # other config repositories
 cd ~/projects
 
-if [ ! -d LS_COLORS ]; then
-    git clone https://github.com/trapd00r/LS_COLORS.git
-fi
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+ln -sf $DIR/zshrc ~/.zshrc
+ln -sf $DIR/zpreztorc ~/.zpreztorc
 
-if [ ! -d zsh-syntax-highlighting ]; then
-    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-fi
 
-if [ ! -d oh-my-zsh ]; then
-    git clone git://github.com/degeberg/oh-my-zsh.git
-fi
+#if [ ! -d LS_COLORS ]; then
+#    git clone https://github.com/trapd00r/LS_COLORS.git
+#fi
+#
+#if [ ! -d zsh-syntax-highlighting ]; then
+#    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+#fi
+#
+#if [ ! -d oh-my-zsh ]; then
+#    git clone git://github.com/degeberg/oh-my-zsh.git
+#fi
