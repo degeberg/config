@@ -11,6 +11,7 @@ import XMonad.Util.Run
 import XMonad.Util.Scratchpad
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Fullscreen
 import XMonad.Actions.CycleWS
 import XMonad.Actions.GridSelect
 import XMonad.Actions.TopicSpace
@@ -95,7 +96,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 
 -- Layouts
 myLayout = onWorkspaces ["movie", "im"] (avoidStruts $ noBorders Full) $
-           avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme)
+           avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme) ||| noBorders (fullscreenFull Full)
   where
     tiled = Tall 1 (3/100) (1/2)
 
