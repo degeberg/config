@@ -1,23 +1,22 @@
 -- vim: syn=haskell
 
-Config { font = "-*-montecarlo-medium-r-normal-*-11-*-*-*-c-*-*-*"
+Config { font    = "xft:Montecarlo:size=11:normal:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+       , commands = [ Run Network "enp0s25" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run MultiCpu ["-t","CPU: <total0>%/<total1>%/<total2>%/<total3>%","-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     , Run Com "/home/daniel/bin/pulsevol" ["volume-xmobar"] "vol" 2
-                    , Run Com "/home/daniel/bin/xmobar_pacman.sh" [] "pacman" 120
                     , Run BatteryP ["BAT0"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 10
                     , Run ThermalZone 0 ["-L","40","-H","60","-l","lightblue","-h","red","-t","Temp: <temp>C"] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %pacman%%battery% | %multicpu% | %memory% | %thermal0% | %eth0%%wlan0% | %vol% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %thermal0% | %enp0s25%%wlp3s0% | %vol% | <fc=#ee9a00>%date%</fc>"
        }
 
