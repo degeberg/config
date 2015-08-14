@@ -5,55 +5,55 @@ ControlPersist 15m
 ForwardAgent yes
 
 Host kantine
-  Hostname kantine.diku.dk
-  User daniel
+    Hostname kantine.diku.dk
+    User daniel
 
 Host home
-  Hostname home.degeberg.com
-  KeepAlive yes
-  User daniel
-  Port 22
+    Hostname home.degeberg.com
+    KeepAlive yes
+    User daniel
+    Port 22
 
 Host thinkpad
-  Hostname 10.2.0.6
-  KeepAlive yes
-  Port 22
-  Ciphers arcfour
+    Hostname 10.2.0.6
+    KeepAlive yes
+    Port 22
+    Ciphers arcfour
 
 Host ask
-  Hostname ask.diku.dk
-  User egeberg
-  Compression yes
-  CompressionLevel 9
-  KeepAlive yes
+    Hostname ask.diku.dk
+    User egeberg
+    Compression yes
+    CompressionLevel 9
+    KeepAlive yes
 
 Host brok
-  Hostname brok.diku.dk
-  User egeberg
-  KeepAlive yes
+    Hostname brok.diku.dk
+    User egeberg
+    KeepAlive yes
 
 Host tyr
-  Hostname tyr.diku.dk
-  User egeberg
-  KeepAlive yes
+    Hostname tyr.diku.dk
+    User egeberg
+    KeepAlive yes
 
 Host degeberg
-  Hostname degeberg.com
-  Port 22
-  KeepAlive yes
-  Compression yes
-  CompressionLevel 9
+    Hostname degeberg.com
+    Port 22
+    KeepAlive yes
+    Compression yes
+    CompressionLevel 9
 
 Host apollo
-  Hostname apollo.pwnies.dk
-  User degeberg
+    Hostname apollo.pwnies.dk
+    User degeberg
 
 Host artemis
-  Hostname artemis.pwnies.dk
-  User daniel
+    Hostname artemis.pwnies.dk
+    User daniel
 
 Host github.com
-  ControlMaster no
+    ControlMaster no
 
 Host cloud.pwnies.dk
     User daniel
