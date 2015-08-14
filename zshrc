@@ -20,3 +20,5 @@ unalias rm
 if [ -d /opt/cuda/bin ]; then
     export PATH=$PATH:/opt/cuda/bin
 fi
+
+export EDITOR=vim
