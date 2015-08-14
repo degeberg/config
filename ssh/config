@@ -20,22 +20,10 @@ Host thinkpad
     Port 22
     Ciphers arcfour
 
-Host ask
-    Hostname ask.diku.dk
+Host brok ask tyr
+    Hostname %h.diku.dk
     User egeberg
-    Compression yes
-    CompressionLevel 9
-    KeepAlive yes
-
-Host brok
-    Hostname brok.diku.dk
-    User egeberg
-    KeepAlive yes
-
-Host tyr
-    Hostname tyr.diku.dk
-    User egeberg
-    KeepAlive yes
+    HostKeyAlgorithms=+ssh-dss
 
 Host degeberg
     Hostname degeberg.com
