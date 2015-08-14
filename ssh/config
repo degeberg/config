@@ -1,6 +1,6 @@
-#ControlMaster auto
+ControlMaster auto
 ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
-ControlPersist 15m
+ControlPersist 2h
 
 ForwardAgent yes
 
