@@ -84,3 +84,8 @@ Host gpu01-diku-apl gpu02-diku-apl gpu03-diku-apl gpu04-diku-apl
 
 Host hygge.kantinen.org
     Port 443
+
+Host aur
+    Hostname aur.archlinux.org
+    IdentityFile ~/.ssh/id_rsa-aur
+    User aur
