@@ -30,6 +30,7 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'paradigm/TextObjectify'
 Bundle 'pbrisbin/html-template-syntax'
 Bundle 'ledger/vim-ledger'
+Bundle 'unblevable/quick-scope'
 
 filetype plugin indent on
 
@@ -199,3 +200,8 @@ let g:ghc = "/usr/bin/ghc"
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+" QuickScope
+" Consider this: https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
