@@ -44,29 +44,6 @@ Host degeberg
     Compression yes
     CompressionLevel 9
 
-Host apollo
-    Hostname apollo.pwnies.dk
-    User degeberg
-
-Host artemis
-    Hostname artemis.pwnies.dk
-    User daniel
-
-Host github.com
-    ControlMaster no
-
-Host cloud.pwnies.dk
-    User daniel
-    ProxyCommand none
-    ForwardAgent yes
-
-Host *.pwnies.dk
-    ProxyCommand ssh cloud.pwnies.dk nc -w 1 %h %p
-    ForwardAgent yes
-
-Host git.pwnies.dk
-    User git
-
 Host gnu
     User dhe
     Hostname gnu.jobsafari.dk
@@ -81,9 +58,6 @@ Host gpu01-diku-apl gpu02-diku-apl gpu03-diku-apl gpu04-diku-apl
     ForwardX11 yes
     KeepAlive yes
     ProxyCommand  ssh ssh-diku-apl netcat -w 120 %h %p
-
-Host hygge.kantinen.org
-    Port 443
 
 Host aur
     Hostname aur.archlinux.org
