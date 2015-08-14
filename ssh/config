@@ -51,3 +51,9 @@ Host aur
     Hostname aur.archlinux.org
     IdentityFile ~/.ssh/id_rsa-aur
     User aur
+
+Host desktop
+    Hostname 192.168.0.3
+    ForwardX11 yes
+    KeepAlive yes
+    ProxyCommand  ssh home netcat -w 120 %h %p
