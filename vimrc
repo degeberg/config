@@ -197,3 +197,5 @@ let g:haddock_dir = "/usr/share/doc/ghc/html"
 let g:ghc = "/usr/bin/ghc"
 
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
