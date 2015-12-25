@@ -11,11 +11,12 @@ Config { font    = "xft:Montecarlo:size=11:normal:antialias=true"
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
                     , Run Com "/home/daniel/bin/pulsevol" ["volume-xmobar"] "vol" 5
+                    , Run Com "/home/daniel/bin/keymap" ["current"] "keymap" 5
                     , Run BatteryP ["BAT0"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 20
                     , Run ThermalZone 0 ["-L","40","-H","60","-l","lightblue","-h","red","-t","Temp: <temp>C"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %thermal0% | %dynnetwork% | %vol% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %thermal0% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
        }
 

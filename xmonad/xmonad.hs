@@ -177,6 +177,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, xF86XK_AudioNext), spawn "mpc -q next")
     , ((0, xF86XK_AudioStop), spawn "mpc -q stop")
 
+    -- key maps
+    , ((modMask, xK_Prior), spawn "keymap prev")
+    , ((modMask, xK_Next), spawn "keymap next")
+    , ((modMask, xK_Home), spawn "keymap mru")
+
     -- resizing
     , ((modMask, xK_h ), sendMessage Shrink)
     , ((modMask, xK_l ), sendMessage Expand)
