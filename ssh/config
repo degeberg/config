@@ -18,7 +18,6 @@ Host thinkpad
     Hostname 10.2.0.6
     KeepAlive yes
     Port 22
-    Ciphers arcfour
 
 Host brok ask tyr
     Hostname %h.diku.dk
@@ -53,7 +52,6 @@ Host aur
     User aur
 
 Host desktop
-    Hostname 192.168.0.3
+    Hostname 10.2.0.1
     ForwardX11 yes
     KeepAlive yes
-    ProxyCommand  ssh home netcat -w 120 %h %p
