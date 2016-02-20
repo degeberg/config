@@ -14,6 +14,7 @@ fi
 
 eval "$(fasd --init auto)"
 
+alias py='ipython'
 alias matlabnd='matlab -nodesktop -nosplash'
 unalias rm
 
