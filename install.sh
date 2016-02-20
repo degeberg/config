@@ -43,16 +43,3 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 ln -sf $DIR/zshrc ~/.zshrc
 ln -sf $DIR/zpreztorc ~/.zpreztorc
-
-
-#if [ ! -d LS_COLORS ]; then
-#    git clone https://github.com/trapd00r/LS_COLORS.git
-#fi
-#
-#if [ ! -d zsh-syntax-highlighting ]; then
-#    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-#fi
-#
-#if [ ! -d oh-my-zsh ]; then
-#    git clone git://github.com/degeberg/oh-my-zsh.git
-#fi
