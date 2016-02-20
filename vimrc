@@ -149,7 +149,7 @@ if has("gui_running")
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
     "let g:Powerline_symbols = 'fancy'
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 
     " Don't show toolbar and scrollbars
     set go-=T
