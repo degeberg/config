@@ -9,4 +9,7 @@ style -name tabbrowser-height-fix chrome://* <<EOM
 }
 EOM
 
+" Fix uBlock popup.
+style -n ublock * #nav-bar * { visibility: visible; }
+
 " vim: ft=vim
