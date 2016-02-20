@@ -12,7 +12,7 @@ mkdir -p ~/.ncmpcpp
 ln -s $DIR/Xdefaults ~/.Xdefaults
 ln -s $DIR/xmodmap ~/.xmodmap
 ln -s $DIR/xbindkeysrc ~/.xbindkeysrc
-ln -s $DIR/xsession ~/.xsession
+ln -s $DIR/xinitrc ~/.xinitrc
 ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/screenrc ~/.screenrc
 ln -s $DIR/xmobarrc ~/.xmobarrc
@@ -29,9 +29,6 @@ ln -s $DIR/vimrc ~/.vimrc
 if [ ! -d ~/.vim/bundle/vundle ]; then
     git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
-
-# other
-ln -s ~/.xsession ~/.xinitrc
 
 # other config repositories
 cd ~/projects
