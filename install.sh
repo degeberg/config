@@ -5,7 +5,7 @@ DIR=$(pwd)
 # directories
 ln -s $DIR/mplayer ~/.mplayer
 mkdir -p ~/.xmonad ~/.ssh
-mkdir -p ~/.config/dunst
+mkdir -p ~/.config/{dunst,mpd}
 mkdir -p ~/.ncmpcpp
 
 # files
@@ -22,6 +22,7 @@ ln -s $DIR/ssh/config ~/.ssh/config
 ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
 ln -s $DIR/ncmpcpp/config ~/.ncmpcpp/config
 ln -s $DIR/ghci ~/.ghci
+ln -s $DIR/mpd.conf ~/.config/mpd/mpd.conf
 
 # vim
 ln -s $DIR/vim ~/.vim
