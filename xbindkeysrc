@@ -1,7 +1,7 @@
 "urxvt"
   mod4 + shift + Return
 
-"i3lock -c 000000"
+"slock"
   mod4 + z
 
 "scrot"
