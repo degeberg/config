@@ -1,6 +1,6 @@
 -- vim: syn=haskell
 
-Config { font    = "xft:Montecarlo:size=11:normal:antialias=true"
+Config { font    = "xft:Montecarlo:size=9:normal:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
