@@ -12,10 +12,10 @@ fi
 
 # Customize to your needs...
 
-eval "$(fasd --init auto)"
+type fasd > /dev/null && eval "$(fasd --init auto)"
 
-alias py='ipython'
-alias matlabnd='matlab -nodesktop -nosplash'
+type ipython > /dev/null && alias py='ipython'
+type matlab > /dev/null && alias matlabnd='matlab -nodesktop -nosplash'
 unalias rm
 
 if [ -d /opt/cuda/bin ]; then
