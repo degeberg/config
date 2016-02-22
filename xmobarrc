@@ -5,12 +5,14 @@ Config { font    = "xft:Montecarlo:size=9:normal:antialias=true"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
+       , iconRoot = ".xmonad/resources"
        , commands = [ Run DynNetwork ["-L","0","-H","1048576","--normal","green","--high","red"] 15
                     , Run MultiCpu ["-t","CPU: <total0>%/<total1>%/<total2>%/<total3>%","-L","3","-H","50","--normal","green","--high","red"] 15
                     , Run Memory ["-t","Mem: <usedratio>%"] 20
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
-                    , Run Com "pulsevol" ["volume-xmobar"] "vol" 5
+                    --, Run Com "pulsevol" ["volume-xmobar"] "vol" 5
+                    , Run PipeReader "/tmp/.xmobar-volume-pipe" "vol"
                     , Run Com "keymap" ["current"] "keymap" 5
                     , Run Com "xmobar-service-status" [] "service" 50
                     , Run BatteryP ["BAT0"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 20
