@@ -5,3 +5,6 @@ hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%
 vbell off
 bell_msg '^GBell in window %n'
 defutf8 on
+
+term screen-256color
+startup_message off

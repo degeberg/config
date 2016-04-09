@@ -121,7 +121,6 @@ set softtabstop=4
 set shiftwidth=4
 
 " History and backup
-set viminfo='10,:20,\"100,%,n~/.viminfo
 set history=1000
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
@@ -146,10 +145,10 @@ set formatprg=par
 if has("gui_running")
     colorscheme molokai
     set cursorline
-    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
     "let g:Powerline_symbols = 'fancy'
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline\ 9
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 
     " Don't show toolbar and scrollbars
     set go-=T
@@ -205,3 +204,26 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 " Consider this: https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
+
+if has('nvim')
+    " Remember things between sessions
+    "
+    " '20  - remember marks for 20 previous files
+    " <50 - save 50 lines for each register
+    " :20  - remember 20 items in command-line history
+    " %    - remember the buffer list (if vim started without a file arg)
+    set shada='20,<50,:20,%,n~/.nvim/_nviminfo
+else
+    " Remember things between sessions
+    "
+    " '20  - remember marks for 20 previous files
+    " \"50 - save 50 lines for each register
+    " :20  - remember 20 items in command-line history
+    " %    - remember the buffer list (if vim started without a file arg)
+    " n    - set name of viminfo file
+    set viminfo='20,\"50,:20,%,n~/.vim/_viminfo
+endif
+
+" Sessions
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
