@@ -25,3 +25,5 @@ fi
 
 export EDITOR=vim
 export SYSTEMD_EDITOR=vim
+
+export MPD_HOST=~/.mpd/socket
