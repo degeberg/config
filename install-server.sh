@@ -26,4 +26,5 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 ln -sf $DIR/zshrc ~/.zshrc
 ln -sf $DIR/zpreztorc ~/.zpreztorc
+rm -f ~/.zlogout
 wget https://files.degeberg.com/prompt_superlinh_setup -O ~/.zprezto/modules/prompt/functions/prompt_superlinh_setup
