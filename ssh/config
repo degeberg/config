@@ -14,7 +14,7 @@ Host home
     User daniel
     Port 22
 
-Host thinkpad
+Host laptop
     Hostname 10.2.0.6
     KeepAlive yes
     Port 22
