@@ -23,7 +23,12 @@ if [ -d /opt/cuda/bin ]; then
     export PATH=$PATH:/opt/cuda/bin
 fi
 
-export EDITOR=vim
-export SYSTEMD_EDITOR=vim
+
+if (( $+commands[nvim] )) ; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+export SYSTEMD_EDITOR=$EDITOR
 
 export MPD_HOST=~/.mpd/socket
