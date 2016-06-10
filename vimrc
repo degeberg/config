@@ -238,7 +238,7 @@ nnoremap <silent> <Leader>ff     :Files<CR>
 nnoremap <silent> <Leader>fb     :Buffer<CR>
 nnoremap <silent> <Leader>fg     :GitFiles<CR>
 
-au! BufWritePost .vimrc source %
+"au! BufWritePost .vimrc source %
 
 " Neomake
 autocmd! BufReadPost,BufWritePost * Neomake
