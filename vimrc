@@ -239,3 +239,8 @@ nnoremap <silent> <Leader>fb     :Buffer<CR>
 nnoremap <silent> <Leader>fg     :GitFiles<CR>
 
 au! BufWritePost .vimrc source %
+
+" Neomake
+autocmd! BufReadPost,BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_perl_enabled_makers = ['perlcritic']
