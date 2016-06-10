@@ -12,9 +12,9 @@ ln -s $DIR/ghci ~/.ghci
 ln -s $DIR/vim ~/.vim
 ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/vim ~/.config/nvim
-if [ ! -d ~/.vim/bundle/vundle ]; then
-    git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-fi
+#if [ ! -d ~/.vim/bundle/vundle ]; then
+#    git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+#fi
 
 # other config repositories
 cd ~/projects

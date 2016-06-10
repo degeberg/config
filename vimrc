@@ -1,33 +1,36 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'msanders/snipmate.vim'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'a.vim'
-Bundle 'matchit.zip'
-Bundle 'taglist.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/vimproc'
-Bundle 'adimit/prolog.vim'
-Bundle 'jimenezrick/vimerl'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'paradigm/TextObjectify'
-Bundle 'pbrisbin/html-template-syntax'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'neomake/neomake'
-Bundle 'janko-m/vim-test'
-Bundle 'vim-perl/vim-perl'
-Bundle 'junegunn/fzf.vim'
-Bundle 'yko/mojo.vim'
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-filetype plugin indent on
+call plug#begin('~/.vim/bundle')
+Plug 'gmarik/vundle'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'msanders/snipmate.vim'
+Plug 'L9'
+Plug 'FuzzyFinder'
+Plug 'Lokaltog/vim-powerline'
+Plug 'a.vim'
+Plug 'matchit.zip'
+Plug 'taglist.vim'
+Plug 'Shougo/neocomplcache'
+Plug 'Shougo/vimproc'
+Plug 'adimit/prolog.vim'
+Plug 'jimenezrick/vimerl'
+Plug 'bkad/CamelCaseMotion'
+Plug 'paradigm/TextObjectify'
+Plug 'pbrisbin/html-template-syntax'
+Plug 'airblade/vim-gitgutter'
+Plug 'neomake/neomake'
+Plug 'janko-m/vim-test'
+Plug 'vim-perl/vim-perl'
+Plug 'junegunn/fzf.vim'
+Plug 'yko/mojo.vim'
+call plug#end()
 
 set lazyredraw
 set ttyfast
@@ -47,7 +50,6 @@ filetype plugin on
 filetype indent on
 
 colorscheme molokai
-syntax on
 
 set visualbell
 "set shm=atIWswxrnmlf
