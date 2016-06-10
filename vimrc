@@ -218,6 +218,13 @@ endif
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
+if isdirectory(expand("~/projects/dev-utils"))
+    source ~/projects/dev-utils/conf/vim/skeletons.vimrc
+    source ~/projects/dev-utils/conf/vim/perltidy.vimrc
+    nmap <F4> :call DoTidy()<CR>
+    vmap <F4> :Tidy<CR>
+endif
+
 au BufEnter *.html.ep set ft=html.epl
 
 set rtp+=~/.fzf
