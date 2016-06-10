@@ -228,9 +228,8 @@ if isdirectory(expand("~/projects/dev-utils"))
     source ~/projects/dev-utils/conf/vim/perltidy.vimrc
     nmap <F4> :call DoTidy()<CR>
     vmap <F4> :Tidy<CR>
+    source ~/projects/dev-utils/conf/vim/neomake.vimrc
 endif
-
-au BufEnter *.html.ep set ft=html.epl
 
 set rtp+=~/.fzf
 
