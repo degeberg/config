@@ -35,7 +35,9 @@ set backspace=indent,eol,start     " backspace works as expected
 set nostartofline                 " Make j/k respect the columns (after all, this is not a freaking typewriter)
 set modeline                     " Respect modeline of the file (the famous "vi:noai:sw=3 ts=6" on the beginning of the files)
 set hidden                         " Avoid asking to save before hiding
-set enc=utf-8
+if !has('nvim')
+    set encoding=utf-8
+endif
 
 set foldenable " Turn on folding
 set foldmethod=marker
@@ -174,7 +176,7 @@ nnoremap <leader>fd :FufDir<CR>
 nmap <Leader>bi :BundleInstall<CR>
 nmap <Leader>bi! :BundleInstall!<CR>
 nmap <silent> <leader>s :set spell!<CR>
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 nmap <silent> <leader>n :set number!<cr>
 nmap <silent> <leader>r :set relativenumber!<cr>
 nmap <silent> <leader>a :A<cr>
@@ -232,3 +234,5 @@ set rtp+=~/.fzf
 nnoremap <silent> <Leader>ff     :Files<CR>
 nnoremap <silent> <Leader>fb     :Buffer<CR>
 nnoremap <silent> <Leader>fg     :GitFiles<CR>
+
+au! BufWritePost .vimrc source %
