@@ -7,30 +7,25 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'msanders/snipmate.vim'
-Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-"Bundle 'molok/vim-smartusline'
 Bundle 'Lokaltog/vim-powerline'
-"Bundle 'Lokaltog/powerline'
 Bundle 'a.vim'
 Bundle 'matchit.zip'
 Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kien/ctrlp.vim'
-Bundle 'lukerandall/haskellmode-vim'
 Bundle 'Shougo/vimproc'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'ujihisa/neco-ghc'
-Bundle 'scrooloose/syntastic'
 Bundle 'adimit/prolog.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'paradigm/TextObjectify'
 Bundle 'pbrisbin/html-template-syntax'
-Bundle 'ledger/vim-ledger'
-Bundle 'unblevable/quick-scope'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'neomake/neomake'
+Bundle 'janko-m/vim-test'
+Bundle 'vim-perl/vim-perl'
+Bundle 'junegunn/fzf.vim'
+Bundle 'yko/mojo.vim'
 
 filetype plugin indent on
 
@@ -200,11 +195,6 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
-" QuickScope
-" Consider this: https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-
 if has('nvim')
     " Remember things between sessions
     "
@@ -227,3 +217,11 @@ endif
 " Sessions
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
+
+au BufEnter *.html.ep set ft=html.epl
+
+set rtp+=~/.fzf
+
+nnoremap <silent> <Leader>ff     :Files<CR>
+nnoremap <silent> <Leader>fb     :Buffer<CR>
+nnoremap <silent> <Leader>fg     :GitFiles<CR>
