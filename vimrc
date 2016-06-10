@@ -254,7 +254,7 @@ if has('nvim')
 endif
 
 " airline
-AirlineTheme powerlineish
+let g:airline_theme="powerlineish"
 
 " vim-perl
 let perl_sub_signatures = 1
