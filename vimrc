@@ -244,3 +244,11 @@ nnoremap <silent> <Leader>fg     :GitFiles<CR>
 autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_perl_enabled_makers = ['perlcritic']
+
+" vim-test
+let g:test#perl#prove#file_pattern = '\v^t/.*\Test.pm$'
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+if has('nvim')
+    let test#strategy = "neovim"
+endif
