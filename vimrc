@@ -28,7 +28,7 @@ Plug 'pbrisbin/html-template-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'janko-m/vim-test'
-Plug 'vim-perl/vim-perl'
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny method-signatures' }
 Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
 call plug#end()
@@ -252,3 +252,10 @@ nmap <silent> <leader>T :TestFile<CR>
 if has('nvim')
     let test#strategy = "neovim"
 endif
+
+" airline
+AirlineTheme powerlineish
+
+" vim-perl
+let perl_sub_signatures = 1
+let perl_include_pod = 1
