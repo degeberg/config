@@ -31,6 +31,7 @@ Plug 'janko-m/vim-test'
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny method-signatures' }
 Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
+Plug 'tpope/vim-obsession'
 call plug#end()
 
 set lazyredraw
@@ -242,7 +243,8 @@ nnoremap <silent> <Leader>fg     :GitFiles<CR>
 " Neomake
 autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_perl_enabled_makers = ['perlcritic']
+let g:neomake_perl_enabled_makers = ['perl', 'perlcritic']
+let g:neomake_less_enabled_makers = ['lessc']
 
 " vim-test
 let g:test#perl#prove#file_pattern = '\v^t/.*\Test.pm$'
