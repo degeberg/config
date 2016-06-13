@@ -1,3 +1,5 @@
+" vim: nospell
+
 set nocompatible
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -237,13 +239,19 @@ set rtp+=~/.fzf
 nnoremap <silent> <Leader>ff     :Files<CR>
 nnoremap <silent> <Leader>fb     :Buffer<CR>
 nnoremap <silent> <Leader>fg     :GitFiles<CR>
+nnoremap <silent> <Leader>ft     :Tags<CR>
 
 "au! BufWritePost .vimrc source %
 
 " Neomake
 autocmd! BufReadPost,BufWritePost * Neomake
+if filereadable('./.ctags')
+    let g:neomake_perl_ctags_maker = { 'args': ['-R'], 'append_file': 0 }
+    let g:neomake_perl_enabled_makers = ['perl', 'perlcritic', 'ctags']
+else
+    let g:neomake_perl_enabled_makers = ['perl', 'perlcritic']
+endif
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_perl_enabled_makers = ['perl', 'perlcritic']
 let g:neomake_less_enabled_makers = ['lessc']
 
 " vim-test
@@ -260,3 +268,14 @@ let g:airline_theme="powerlineish"
 " vim-perl
 let perl_sub_signatures = 1
 let perl_include_pod = 1
+let perl_pod_formatting = 1
+
+" better splits
+set splitbelow
+set splitright
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" spell checking
+set spell
+set spelllang=en
