@@ -19,7 +19,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'a.vim'
 Plug 'matchit.zip'
-Plug 'taglist.vim'
 Plug 'Shougo/neocomplcache'
 Plug 'Shougo/vimproc'
 Plug 'adimit/prolog.vim'
@@ -232,6 +231,7 @@ if isdirectory(expand("~/projects/dev-utils"))
     nmap <F4> :call DoTidy()<CR>
     vmap <F4> :Tidy<CR>
     source ~/projects/dev-utils/conf/vim/neomake.vimrc
+    source ~/projects/dev-utils/conf/vim/vim-test.vimrc
 endif
 
 set rtp+=~/.fzf
@@ -255,9 +255,9 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_less_enabled_makers = ['lessc']
 
 " vim-test
-let g:test#perl#prove#file_pattern = '\v^t/.*\Test.pm$'
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
 if has('nvim')
     let test#strategy = "neovim"
 endif
@@ -277,5 +277,5 @@ set splitright
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " spell checking
-set spell
+set nospell
 set spelllang=en

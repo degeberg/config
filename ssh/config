@@ -36,11 +36,6 @@ Host gnu
     ForwardX11 yes
     ForwardX11Trusted yes
 
-Host batch
-    Hostname %h.jobsafari.dk
-    User jobxx
-    ProxyCommand ssh -W %h:%p gnu
-
 Host syslog
     Hostname 192.168.0.37
     User root
