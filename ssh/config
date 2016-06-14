@@ -22,7 +22,6 @@ Host laptop
 Host brok ask tyr
     Hostname %h.diku.dk
     User egeberg
-    HostKeyAlgorithms=+ssh-dss
 
 Host degeberg
     Hostname degeberg.com
