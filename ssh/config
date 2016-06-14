@@ -1,6 +1,6 @@
 ControlMaster auto
 ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
-ControlPersist 2h
+ControlPersist 8h
 
 ForwardAgent yes
 
@@ -34,6 +34,18 @@ Host degeberg
 Host gnu
     User dhe
     Hostname gnu.jobsafari.dk
+    ForwardX11 yes
+    ForwardX11Trusted yes
+
+Host batch
+    Hostname %h.jobsafari.dk
+    User jobxx
+    ProxyCommand ssh -W %h:%p gnu
+
+Host syslog
+    Hostname 192.168.0.37
+    User root
+    ProxyCommand ssh -W %h:%p batch
 
 Host ssh-diku-apl
     User mzn808

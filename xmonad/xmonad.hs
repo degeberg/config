@@ -195,6 +195,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask, xK_g), goToSelected defaultGSConfig)
 
      ,((modMask, xK_b     ), sendMessage ToggleStruts)
+
+     ,((0, xF86XK_Calculator ), spawn "/home/dhe/bin/whoscalling.pl")
+     ,((0, xK_Pause ),          spawn "/home/dhe/bin/whoscalling.pl")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N

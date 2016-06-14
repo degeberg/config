@@ -1,7 +1,7 @@
 "urxvt"
   mod4 + shift + Return
 
-"slock"
+"lock-dbus-wrapper.sh slock"
   mod4 + z
 
 "scrot"

@@ -30,8 +30,14 @@ URxvt*color14 : #34E2E2
 URxvt*color7  : #D3D7CF
 URxvt*color15 : #EEEEEC
 
-URxvt*font: xft:Ubuntu Mono:pixelsize=14
-URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=14
+!URxvt*font: xft:Ubuntu Mono:pixelsize=14
+!URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=14
+
+URxvt.font: xft:Droid Sans Mono:pixelsize=12:Regular
+URxvt.boldFont: xft:Droid Sans Mono:pixelsize=12:Bold
+URxvt.italicFont: xft:Droid Sans Mono:pixelsize=12:Italic
+URxvt.boldItalicFont: xft:Droid Sans Mono:pixelsize=12:Bold:Italic
+URxvt.letterSpace: -1
 
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
@@ -55,3 +61,8 @@ URxvt.keysym.M-u:    perl:url-select:select_next
 URxvt.url-select.launcher:   /usr/bin/firefox -new-tab
 URxvt.url-select.underline: true
 
+URxvt*saveLines:100000
+
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
