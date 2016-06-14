@@ -20,4 +20,10 @@ ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
 ln -s $DIR/ncmpcpp/config ~/.ncmpcpp/config
 ln -s $DIR/mpd.conf ~/.config/mpd/mpd.conf
 
+# systemd
+mkdir -p ~/.config/systemd/user
+ln $DIR/systemd/compton.service ~/.config/systemd/user/compton.service
+systemctl --user daemon-reload
+systemctl --user enable compton.service
+
 zsh ./install-server.sh
