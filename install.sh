@@ -5,7 +5,7 @@ DIR=$(pwd)
 # directories
 ln -s $DIR/mplayer ~/.mplayer
 mkdir -p ~/.xmonad ~/.ssh
-mkdir -p ~/.config/{dunst,mpd}
+mkdir -p ~/.config/{dunst,mpd,gtk-3.0}
 mkdir -p ~/.ncmpcpp
 
 # files
@@ -19,6 +19,9 @@ ln -s $DIR/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $DIR/dunstrc ~/.config/dunst/dunstrc
 ln -s $DIR/ncmpcpp/config ~/.ncmpcpp/config
 ln -s $DIR/mpd.conf ~/.config/mpd/mpd.conf
+ln -s $DIR/gtk/gtk2/gtkrc-2.0 ~/.gtkrc-2.0
+ln -s $DIR/gtk/gtk2/gtkrc-2.0.mine ~/.gtkrc-2.0.mine
+ln -s $DIR/gtk/gtk3/settings.ini ~/.config/gtk-3.0/settings.ini
 
 # systemd
 mkdir -p ~/.config/systemd/user
