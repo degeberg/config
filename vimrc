@@ -9,7 +9,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'gmarik/vundle'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'msanders/snipmate.vim'
