@@ -33,6 +33,7 @@ Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp highlight-all-
 Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
 Plug 'tpope/vim-obsession'
+Plug 'kassio/neoterm'
 call plug#end()
 
 set lazyredraw
@@ -232,6 +233,7 @@ if isdirectory(expand("~/projects/dev-utils"))
     vmap <F4> :Tidy<CR>
     source ~/projects/dev-utils/conf/vim/neomake.vimrc
     source ~/projects/dev-utils/conf/vim/vim-test.vimrc
+    nmap <silent> <leader>tt :call JIX_jump_testfile()<CR>
 endif
 
 set rtp+=~/.fzf
@@ -258,8 +260,10 @@ let g:neomake_less_enabled_makers = ['lessc']
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 if has('nvim')
-    let test#strategy = "neovim"
+    let test#strategy = "neoterm"
 endif
 
 " airline
@@ -279,3 +283,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " spell checking
 set nospell
 set spelllang=en
+
+" neoterm
+nnoremap <silent> <leader>nc :call neoterm#close()<CR>
+nnoremap <silent> <leader>nl :call neoterm#clear()<CR>
+nnoremap <silent> <leader>nk :call neoterm#kill()<CR>
+nnoremap <silent> <leader>no :Topen<CR>
+nnoremap <silent> <leader>nt :Ttoggle<CR>
