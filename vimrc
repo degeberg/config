@@ -33,6 +33,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
 Plug 'tpope/vim-obsession'
 Plug 'kassio/neoterm'
+if isdirectory(expand("~/projects/dev-utils"))
+    Plug '~/projects/dev-utils/conf/vim'
+end
 call plug#end()
 
 set lazyredraw
@@ -226,12 +229,8 @@ set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
 if isdirectory(expand("~/projects/dev-utils"))
-    source ~/projects/dev-utils/conf/vim/skeletons.vimrc
-    source ~/projects/dev-utils/conf/vim/perltidy.vimrc
     nmap <F4> :call DoTidy()<CR>
     vmap <F4> :Tidy<CR>
-    source ~/projects/dev-utils/conf/vim/neomake.vimrc
-    source ~/projects/dev-utils/conf/vim/vim-test.vimrc
     nmap <silent> <leader>tt :call JIX_jump_testfile()<CR>
 endif
 

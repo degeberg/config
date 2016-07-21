@@ -30,17 +30,6 @@ Host degeberg
     Compression yes
     CompressionLevel 9
 
-Host gnu
-    User dhe
-    Hostname gnu.jobsafari.dk
-    ForwardX11 yes
-    ForwardX11Trusted yes
-
-Host syslog
-    Hostname 192.168.0.37
-    User root
-    ProxyCommand ssh -W %h:%p batch
-
 Host ssh-diku-apl
     User mzn808
     KeepAlive yes
