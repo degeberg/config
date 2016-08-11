@@ -8,6 +8,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -35,6 +39,9 @@ Plug 'tpope/vim-obsession'
 Plug 'kassio/neoterm'
 if isdirectory(expand("~/projects/dev-utils"))
     Plug '~/projects/dev-utils/conf/vim'
+end
+if has("python3")
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 end
 call plug#end()
 
@@ -288,3 +295,6 @@ nnoremap <silent> <leader>nl :call neoterm#clear()<CR>
 nnoremap <silent> <leader>nk :call neoterm#kill()<CR>
 nnoremap <silent> <leader>no :Topen<CR>
 nnoremap <silent> <leader>nt :Ttoggle<CR>
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
