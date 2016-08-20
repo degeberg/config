@@ -25,7 +25,8 @@ import qualified XMonad.Layout.Tabbed as Tabbed
 import XMonad.Hooks.EwmhDesktops
 
 runCmd, myBar, myTerminal :: String
-runCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
+--runCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
+runCmd= "rofi -show run"
 myBar = "xmobar"
 myTerminal = "urxvt"
 
