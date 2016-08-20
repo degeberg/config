@@ -24,8 +24,8 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.Layout.Tabbed as Tabbed
 import XMonad.Hooks.EwmhDesktops
 
-dmenuCmd, myBar, myTerminal :: String
-dmenuCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
+runCmd, myBar, myTerminal :: String
+runCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 myBar = "xmobar"
 myTerminal = "urxvt"
 
@@ -198,6 +198,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
      ,((0, xF86XK_Calculator ), spawn "/home/dhe/bin/whoscalling.pl")
      ,((0, xK_Pause ),          spawn "/home/dhe/bin/whoscalling.pl")
+
+     ,((modMask, xK_p),                    spawn runCmd)
+     ,((modMask .|. shiftMask, xK_Return), spawn myTerminal)
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
