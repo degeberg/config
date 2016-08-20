@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
 Plug 'tpope/vim-obsession'
 Plug 'kassio/neoterm'
+Plug 'rust-lang/rust.vim'
 if isdirectory(expand("~/projects/dev-utils"))
     Plug '~/projects/dev-utils/conf/vim'
 end
@@ -202,13 +203,13 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
-au Bufenter *.hs compiler ghc
+"au Bufenter *.hs compiler ghc
+"
+"let g:haddock_browser = "/usr/bin/firefox"
+"let g:haddock_dir = "/usr/share/doc/ghc/html"
+"let g:ghc = "/usr/bin/ghc"
 
-let g:haddock_browser = "/usr/bin/firefox"
-let g:haddock_dir = "/usr/share/doc/ghc/html"
-let g:ghc = "/usr/bin/ghc"
-
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+"autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
