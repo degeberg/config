@@ -167,7 +167,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask , xK_period), sendMessage (IncMasterN (-1)))
 
     -- switch between current and previous workspace
-    , ((modMask .|. shiftMask , xK_w ), toggleWS )
+    --, ((modMask .|. shiftMask , xK_w ), toggleWS )
 
     -- scratch pad
     , ((0, xK_Meta_R), scratchpadSpawnActionTerminal myTerminal)
@@ -202,6 +202,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
      ,((modMask, xK_p),                    spawn runCmd)
      ,((modMask .|. shiftMask, xK_Return), spawn myTerminal)
+     ,((modMask .|. shiftMask, xK_s),      spawn "rofi -show ssh")
+     ,((modMask .|. shiftMask, xK_d),      spawn "rofi -show window")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N
