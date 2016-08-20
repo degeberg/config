@@ -33,6 +33,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neomake/neomake'
 Plug 'janko-m/vim-test'
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny method-signatures' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yko/mojo.vim'
 Plug 'tpope/vim-obsession'
@@ -241,8 +242,6 @@ if isdirectory(expand("~/projects/dev-utils"))
     vmap <F4> :Tidy<CR>
     nmap <silent> <leader>tt :call JIX_jump_testfile()<CR>
 endif
-
-set rtp+=~/.fzf
 
 nnoremap <silent> <Leader>ff     :Files<CR>
 nnoremap <silent> <Leader>fb     :Buffer<CR>
