@@ -2,51 +2,88 @@ ControlMaster auto
 ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
 ControlPersist 8h
 
-ForwardAgent yes
+ForwardAgent no
 
-Host kantine
-    Hostname kantine.diku.dk
-    User daniel
-
+#################
+# Home machines #
+#################
 Host home
     Hostname home.degeberg.com
-    KeepAlive yes
     User daniel
-    Port 22
+    ForwardAgent yes
 
 Host laptop
+    User daniel
     Hostname 10.42.3.6
-    KeepAlive yes
-    Port 22
+    ForwardAgent yes
+
+Host desktop
+    User daniel
+    Hostname 10.42.3.1
+    ForwardX11 yes
+
+##############
+# My servers #
+##############
+
+Host degeberg
+    Hostname degeberg.com
+    User daniel
+
+#######
+# Uni #
+#######
 
 Host brok ask tyr
     Hostname %h.diku.dk
     User egeberg
 
-Host degeberg
-    Hostname degeberg.com
-    Port 22
-    KeepAlive yes
-    Compression yes
-    CompressionLevel 9
-
-Host ssh-diku-apl
-    User mzn808
-    KeepAlive yes
-    Hostname ssh-diku-apl.science.ku.dk
-
-Host gpu01-diku-apl gpu02-diku-apl gpu03-diku-apl gpu04-diku-apl
-    User mzn808
-    ForwardX11 yes
-    KeepAlive yes
-    ProxyCommand  ssh ssh-diku-apl netcat -w 120 %h %p
+##############
+# Arch Linux #
+##############
 
 Host aur
     Hostname aur.archlinux.org
     IdentityFile ~/.ssh/id_rsa-aur
     User aur
 
-Host desktop
-    Hostname 10.42.3.1
+############
+# Jobindex #
+############
+
+# Basic settings
+Host *.jobsafari.dk
+    IdentityFile ~/.ssh/id_rsa-jix
     ForwardX11 yes
-    KeepAlive yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+
+# Direct/public access
+Host gnu batch
+    Hostname %h.jobsafari.dk
+    User jobxx
+
+Host gnu
+    User dhe
+
+# Jump host access
+Host syslog.jix
+    Hostname 192.168.0.37
+
+Host weba.jix
+    User jobxx
+    Hostname 192.168.0.71
+
+Host webb.jix
+    User jobxx
+    Hostname 192.168.0.72
+
+Host proxya.jix
+    Hostname 192.168.0.105
+
+Host proxyb.jix
+    Hostname 192.168.0.105
+
+Host *.jix
+    User root
+    ProxyJump batch
