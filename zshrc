@@ -32,3 +32,5 @@ fi
 export SYSTEMD_EDITOR=$EDITOR
 
 export MPD_HOST=~/.mpd/socket
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
