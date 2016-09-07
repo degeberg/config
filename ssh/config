@@ -37,6 +37,7 @@ Host degeberg
 Host brok ask tyr
     Hostname %h.diku.dk
     User egeberg
+    HostKeyAlgorithms +ssh-dss
 
 ##############
 # Arch Linux #

@@ -5,7 +5,6 @@ My configuration files.
 This section is likely incomplete.
 
 ### Arch Linux repositories
- * [alucryd](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#alucryd)
  * [infinality-bundle](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle)
  * [infinality-bundle-fonts](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle-fonts)
  * [repo-ck](https://wiki.archlinux.org/index.php/Unofficial_user_repositories#repo-ck)
@@ -15,7 +14,6 @@ This section is likely incomplete.
         chromium \
         compton \
         ctags \
-        dmenu \
         evince \
         firefox \
         fontconfig-infinality-ultimate \
@@ -33,9 +31,9 @@ This section is likely incomplete.
         openvpn \
         pavucontrol \
         pulseaudio \
+        rofi \
         rxvt-unicode \
         slock \
-        snapper \
         sshfs \
         sudo \
         thunar \
@@ -44,8 +42,8 @@ This section is likely incomplete.
         xmobar \
         xmonad \
         xmonad-contrib \
-        xorg-init \
         xorg-server \
+        xorg-xinit \
         xorg-xmodmap \
         xsel \
         zsh
@@ -63,5 +61,4 @@ Install `cower` and `pacaur` manually.
         gtk-theme-arc-solid \
         hsetroot \
         lastpass \
-        montecarlo-font \
-        snap-pac
+        montecarlo-font
