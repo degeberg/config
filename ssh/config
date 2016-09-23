@@ -45,7 +45,7 @@ Host brok ask tyr
 
 Host aur
     Hostname aur.archlinux.org
-    IdentityFile ~/.ssh/id_rsa-aur
+    IdentityFile ~/.ssh/id_ed25519-aur
     User aur
 
 ############
