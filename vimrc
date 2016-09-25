@@ -17,16 +17,13 @@ endfunction
 call plug#begin('~/.vim/bundle')
 " }}}
 " 00.02) Plugin includes {{{
-Plug 'FuzzyFinder'
 Plug 'L9'
 Plug 'Shougo/neocomplcache'
 Plug 'Shougo/vimproc'
 Plug 'a.vim'
-Plug 'adimit/prolog.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bkad/CamelCaseMotion'
 Plug 'janko-m/vim-test'
-Plug 'jimenezrick/vimerl'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
