@@ -39,6 +39,7 @@ Plug 'yko/mojo.vim'
 Plug 'tpope/vim-obsession'
 Plug 'kassio/neoterm'
 Plug 'rust-lang/rust.vim'
+Plug 'nfnty/vim-nftables'
 if isdirectory(expand("~/projects/dev-utils"))
     Plug '~/projects/dev-utils/conf/vim'
 end

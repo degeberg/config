@@ -56,9 +56,11 @@ Install `cower` and `pacaur` manually.
     pacaur -y \
         arc-icon-theme \
         chromium-pepper-flash \
-        fast \
+        fasd \
         freshplayerplugin \
         gtk-theme-arc-solid \
         hsetroot \
         lastpass \
-        montecarlo-font
+        montecarlo-font \
+        firefox-extension-{enhancedsteam,foxyproxy,gnotifier,greasemonkey,https-everywhere,privacybadger,self-destructing-cookies,tree-style-tab} \
+        firefox-ublock-origin

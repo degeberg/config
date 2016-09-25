@@ -16,10 +16,10 @@ Config { font    = "xft:Montecarlo:size=9:normal:antialias=true"
                     , Run Com "keymap" ["current"] "keymap" 5
                     , Run Com "xmobar-service-status" [] "service" 50
                     , Run BatteryP ["BAT0"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 20
-                    , Run ThermalZone 0 ["-L","40","-H","60","-l","lightblue","-h","red","-t","Temp: <temp>C"] 20
+                    , Run ThermalZone 2 ["-L","40","-H","60","-l","lightblue","-h","red","-t","Temp: <temp>C"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %service% | %battery% | %multicpu% | %memory% | %thermal0% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %service% | %battery% | %multicpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
        }
 

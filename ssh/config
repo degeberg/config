@@ -2,25 +2,25 @@ ControlMaster auto
 ControlPath ~/.ssh/mux/ssh_mux_%h_%p_%r
 ControlPersist 8h
 
-ForwardAgent no
-
 #################
 # Home machines #
 #################
-Host home
-    Hostname home.degeberg.com
-    User daniel
-    ForwardAgent yes
 
-Host laptop
+Host daniel-laptop laptop
     User daniel
     Hostname 10.42.3.6
     ForwardAgent yes
 
-Host desktop
+Host daniel-desktop desktop
     User daniel
     Hostname 10.42.3.1
     ForwardX11 yes
+
+Host daniel-router router
+    Hostname 10.42.0.1
+
+Host daniel-ap ap
+    Hostname 10.42.0.2
 
 ##############
 # My servers #
@@ -30,23 +30,22 @@ Host degeberg
     Hostname degeberg.com
     User daniel
 
-#######
-# Uni #
-#######
-
-Host brok ask tyr
-    Hostname %h.diku.dk
-    User egeberg
-    HostKeyAlgorithms +ssh-dss
-
-##############
-# Arch Linux #
-##############
+############
+# Services #
+############
 
 Host aur
     Hostname aur.archlinux.org
     IdentityFile ~/.ssh/id_ed25519-aur
     User aur
+
+Host github
+    User git
+    Hostname github.com
+
+Host gitlab
+    User degeberg
+    Hostname gitlab.com
 
 ############
 # Jobindex #
@@ -60,12 +59,12 @@ Host *.jobsafari.dk
     ForwardAgent yes
 
 # Direct/public access
+Host gnu
+    User dhe
+
 Host gnu batch
     Hostname %h.jobsafari.dk
     User jobxx
-
-Host gnu
-    User dhe
 
 # Jump host access
 Host syslog.jix
@@ -88,3 +87,10 @@ Host proxyb.jix
 Host *.jix
     User root
     ProxyJump batch
+
+####################
+# Default settings #
+####################
+
+Host *
+    ForwardAgent no
