@@ -16,6 +16,8 @@ xsetroot -cursor_name left_ptr
 keymap us
 xbindkeys
 
+urxvtd -q -f -o
+
 eval `ssh-agent`
 
 exec xmonad

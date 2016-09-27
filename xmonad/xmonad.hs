@@ -28,7 +28,7 @@ runCmd, myBar, myTerminal :: String
 --runCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 runCmd= "rofi -show run"
 myBar = "xmobar"
-myTerminal = "urxvt"
+myTerminal = "urxvtc"
 
 main :: IO ()
 main = do xmproc <- spawnPipe myBar
@@ -39,7 +39,7 @@ main = do xmproc <- spawnPipe myBar
                    , keys               = myKeys
                    --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
                    , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d", "plex"]
-                   , logHook            = ((setWMName "LG3D") >> (dynamicLogWithPP $ myPP xmproc))
+                   , logHook            = setWMName "LG3D" >> dynamicLogWithPP (myPP xmproc)
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
                    , borderWidth        = 1
@@ -58,12 +58,11 @@ myPP h = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
 myManageHook :: ManageHook
 myManageHook = composeAll
     [ isFullscreen --> doFullFloat
-    , className =? "Pidgin" --> doShift "d"
-    , className =? "Skype" --> doShift "d"
-    , className =? "Keepassx" --> doShift "b"
+    , title     =? "plexhometheater" --> doShift "plex"
     , className =? "Firefox" --> doShift "web"
     , title     =? "VLC media player" --> doFloat
-    , title     =? "VLC (XVideo output)" --> doFloat] <+> manageScratchPad
+    , title     =? "VLC (XVideo output)" --> doFloat
+    ] <+> manageScratchPad
 
 shell ::  X ()
 shell = spawn myTerminal
@@ -71,7 +70,7 @@ shell = spawn myTerminal
 browser, edit, ssh ::  String -> X ()
 browser s = spawn ("firefox " ++ s)
 edit s = spawn ("gvim " ++ s)
-ssh s = spawn ("urxvt -e ssh " ++ s)
+ssh s = spawn (myTerminal ++ " -e ssh " ++ s)
 
 myTopicConfig :: TopicConfig
 myTopicConfig = defaultTopicConfig
@@ -81,7 +80,7 @@ myTopicConfig = defaultTopicConfig
     , topicActions = M.fromList
         [ ("web",       browser "")
         , ("im",        ssh "im@degeberg")
-        , ("plex",      spawn "/usr/bin/plexhometheater.sh")
+        , ("plex",      spawn "/usr/bin/openpht.sh")
         , ("mail",      spawn "thunderbird")
         ]
     }
@@ -96,23 +95,10 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     l = 1 - w   -- distance from left edge, 0%
 
 -- Layouts
-myLayout = onWorkspaces ["movie", "im"] (avoidStruts $ noBorders Full) $
-           avoidStruts (tiled ||| Mirror tiled ||| Full ||| Tabbed.tabbedBottom Tabbed.CustomShrink myTabbedTheme) ||| noBorders (fullscreenFull Full)
+myLayout = onWorkspaces ["plex"] (noBorders (fullscreenFull Full)) $
+           avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
     tiled = Tall 1 (3/100) (1/2)
-
-instance Tabbed.Shrinker Tabbed.CustomShrink where
-  shrinkIt _ _ = []
-
-myTabbedTheme =
-  Tabbed.defaultTheme
-  { Tabbed.inactiveBorderColor = "#000000"
-  , Tabbed.inactiveColor = "#000000"
-  , Tabbed.activeColor = "#BB0000"
-  , Tabbed.activeBorderColor = "#BB0000"
-  , Tabbed.urgentBorderColor = "#FF0000"
-  , Tabbed.decoHeight = 3
-  }
 
 myXPConfig = defaultXPConfig
   { fgColor = "#a8a3f7"
@@ -127,7 +113,7 @@ promptedGoto = workspacePrompt myXPConfig goto
 
 -- Keys
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
-myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
+myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
     -- killing programs
     [ ((modMask .|. shiftMask, xK_c ), kill)
 
@@ -201,7 +187,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      ,((0, xK_Pause ),          spawn "/home/dhe/bin/whoscalling.pl")
 
      ,((modMask, xK_p),                    spawn runCmd)
-     ,((modMask .|. shiftMask, xK_Return), spawn myTerminal)
+     ,((modMask .|. shiftMask, xK_Return), shell)
      ,((modMask .|. shiftMask, xK_s),      spawn "rofi -show ssh")
      ,((modMask .|. shiftMask, xK_d),      spawn "rofi -show window")
     ]
