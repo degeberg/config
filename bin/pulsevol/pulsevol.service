@@ -1,0 +1,8 @@
+[Unit]
+Description=Refresh volume status
+
+[Service]
+ExecStart=/home/daniel/bin/pulsevol update-pipe 1
+
+[Install]
+WantedBy=default.target

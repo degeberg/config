@@ -67,6 +67,11 @@ case "$1" in
         volume_xmobar
         ;;
     "update-pipe")
-        update_pipe
+        secs=$2
+        [[ "x$secs" != "x" ]] || exit 1
+        while :; do
+            update_pipe
+            sleep $secs
+        done
         ;;
 esac
