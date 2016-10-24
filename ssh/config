@@ -28,6 +28,7 @@ Host daniel-ap ap
 
 Host degeberg
     Hostname degeberg.com
+    Port 10022
     User daniel
 
 ############
