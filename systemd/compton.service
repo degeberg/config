@@ -3,9 +3,10 @@ Description=compton
 Documentation=man:compton(1)
 
 [Service]
-ExecStart=/usr/bin/compton
-Environment=DISPLAY=:0
+ExecStart=/usr/bin/compton -d :0 --write-pid-path %t/compton.pid
+ExecReload=/usr/bin/pkill -USR1 -F %t/compton.pid
+PIDFile=%t/compton.pid
 Type=simple
 
 [Install]
-WantedBy=default.target
+WantedBy=mystuff.target
