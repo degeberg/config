@@ -38,7 +38,7 @@ main = do xmproc <- spawnPipe myBar
                    , terminal           = myTerminal
                    , keys               = myKeys
                    --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
-                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "d", "plex"]
+                   , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "music", "plex"]
                    , logHook            = setWMName "LG3D" >> dynamicLogWithPP (myPP xmproc)
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
@@ -82,6 +82,7 @@ myTopicConfig = defaultTopicConfig
         , ("im",        ssh "im@degeberg")
         , ("plex",      spawn "/usr/bin/openpht.sh")
         , ("mail",      spawn "thunderbird")
+        , ("music",     spawn $ myTerminal ++ " -e gpmdp")
         ]
     }
 
