@@ -34,3 +34,4 @@ export SYSTEMD_EDITOR=$EDITOR
 export MPD_HOST=~/.mpd/socket
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_R_OPTS='--sort --exact'
