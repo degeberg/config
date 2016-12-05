@@ -47,6 +47,12 @@ end
 if has("python3")
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 end
+if executable('ack')
+    Plug 'mileszs/ack.vim'
+endif
+if executable('ag')
+    Plug 'epmatsw/ag.vim'
+endif
 " }}}
 " 00.03) Post-setup {{{
 call plug#end()
@@ -204,8 +210,15 @@ map <F2> :make<CR>
 " }}}
 
 " 22) Running make and jumping to errors {{{
-set grepprg=ack
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ackprg='ag --nogroup --nocolor --column'
+elseif executable('ack')
+    set grepprg=ack
+    let g:ackprg="ack -s -H --nopager --nocolor --nogroup --column"
+endif
 set grepformat=%f:%l:%m
+cnoreabbrev Ack Ack!
 " }}}
 
 " 23) Language specific {{{
