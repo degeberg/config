@@ -27,6 +27,7 @@ Host daniel-ap ap
 ##############
 
 Host degeberg
+    VerifyHostKeyDNS yes
     Hostname degeberg.com
     Port 10022
     User daniel
