@@ -63,10 +63,18 @@ Host *.jobsafari.dk
 # Direct/public access
 Host gnu
     User dhe
+    IdentityFile ~/.ssh/id_rsa-jix
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
 
 Host gnu batch
     Hostname %h.jobsafari.dk
     User jobxx
+    IdentityFile ~/.ssh/id_rsa-jix
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
 
 # Jump host access
 Host syslog.jix
