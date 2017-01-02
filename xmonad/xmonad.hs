@@ -82,7 +82,7 @@ myTopicConfig = defaultTopicConfig
         , ("im",        ssh "im@degeberg")
         , ("plex",      spawn "/usr/bin/openpht.sh")
         , ("mail",      spawn "thunderbird")
-        , ("music",     spawn $ myTerminal ++ " -e gpmdp")
+        , ("music",     spawn "gpmdp")
         ]
     }
 
