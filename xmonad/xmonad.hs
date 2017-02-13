@@ -2,6 +2,7 @@ import XMonad
 import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
@@ -32,7 +33,7 @@ myTerminal = "urxvtc"
 
 main :: IO ()
 main = do xmproc <- spawnPipe myBar
-          xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig
+          xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig
                    { manageHook         = myManageHook <+> manageDocks <+> manageHook defaultConfig
                    , layoutHook         = smartBorders myLayout
                    , terminal           = myTerminal
