@@ -8,12 +8,12 @@ ControlPersist 8h
 
 Host daniel-laptop laptop
     User daniel
-    Hostname 10.42.3.6
+    Hostname 10.42.4.3
     ForwardAgent yes
 
 Host daniel-desktop desktop
     User daniel
-    Hostname 10.42.3.1
+    Hostname 10.42.4.2
     ForwardX11 yes
 
 Host daniel-router router
