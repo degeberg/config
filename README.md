@@ -54,6 +54,7 @@ This section is likely incomplete.
 Install `cower` and `pacaur` manually.
 
     pacaur -y \
+        zsh-zim-git \
         arc-icon-theme \
         chromium-pepper-flash \
         fasd \
