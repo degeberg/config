@@ -11,8 +11,8 @@ fi
 
 MODE=$1
 
-OUTPUT_MON1="DP2-2"
-OUTPUT_MON2="DP2-3"
+OUTPUT_MON1="DP2-3"
+OUTPUT_MON2="DP2-2"
 OUTPUT_PC="eDP1"
 
 case "$MODE" in
@@ -30,3 +30,6 @@ case "$MODE" in
         usage
         ;;
 esac
+
+xset s on
+xset +dpms
