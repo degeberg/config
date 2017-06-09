@@ -1,3 +1,8 @@
+# Support locally installed zim instead of system-wide
+if [ -e ~/.zim/init.zsh ]; then
+    source ~/.zim/init.zsh
+fi
+
 bindkey -e
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
