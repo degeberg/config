@@ -1,4 +1,6 @@
-#type fasd > /dev/null && eval "$(fasd --init auto)"
+bindkey -e
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 (( $+commands[ipython] )) && alias py='ipython'
 (( $+commands[matlab] )) && alias matlabnd='matlab -nodesktop -nosplash'

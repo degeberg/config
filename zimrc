@@ -1,0 +1,2 @@
+zmodules=(directory environment git git-info history input utility meta custom \
+          syntax-highlighting history-substring-search prompt pacman fasd archive completion)
