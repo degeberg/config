@@ -25,3 +25,18 @@ export MPD_HOST=~/.mpd/socket
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_R_OPTS='--sort --exact'
+
+# JIX stuff:
+if [ $(hostname) = "gnu" ]; then
+    [ -e /home/perl/bin ] && PATH=/home/perl/bin:$PATH
+    PATH=$PATH:$JOBXXHOME/bin:$HOME/bin
+
+    source ~/jobxx/conf/jix-env.zsh
+
+    ulimit -Sv unlimited
+    ulimit -Sd unlimited
+
+    function m {
+        mysql "job${1:=xx}"
+    }
+fi

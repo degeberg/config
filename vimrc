@@ -19,6 +19,8 @@ call plug#begin('~/.vim/bundle')
 " 00.02) Plugin includes {{{
 Plug 'Shougo/neocomplcache'
 Plug 'Shougo/vimproc'
+Plug 'Shougo/neocomplcache'
+Plug 'Shougo/vimproc'
 Plug 'airblade/vim-gitgutter'
 Plug 'bkad/CamelCaseMotion'
 Plug 'janko-m/vim-test'
@@ -62,6 +64,7 @@ set nostartofline                   " make j/k respect the columns
 set pastetoggle=<F10>
 let mapleader = ","
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 colorscheme molokai
 " }}}
 
@@ -122,6 +125,7 @@ set titlestring=%f%(\ [%M]%)        " Show file name at the title
 " }}}
 
 " 09) Using the mouse {{{
+set mouse=nv
 " }}}
 
 " 10) Printing {{{
@@ -260,6 +264,7 @@ endif
 " n    - set name of viminfo file
 if has('nvim')
     set shada='20,<50,:20,%,n~/.nvim/_nviminfo
+    set guicursor+=a:blinkon0
 else
     set viminfo='20,\"50,:20,%,n~/.vim/_viminfo
 endif
