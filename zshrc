@@ -3,10 +3,6 @@ if [ -e ~/.zim/init.zsh ]; then
     source ~/.zim/init.zsh
 fi
 
-bindkey -e
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-
 (( $+commands[ipython] )) && alias py='ipython'
 (( $+commands[matlab] )) && alias matlabnd='matlab -nodesktop -nosplash'
 
