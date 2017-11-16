@@ -1,0 +1,6 @@
+/* Hide native tabs */
+#TabsToolbar { visibility: collapse; }
+
+/* Hide sidebar header (for Tree Style Tabs) */
+#sidebar-header { display: none; }
+#tabbar { border-top: 0px; }
