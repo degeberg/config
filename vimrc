@@ -40,6 +40,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp highlight-all-pragmas moose test-more try-tiny method-signatures' }
 Plug 'yko/mojo.vim'
+Plug 'jparise/vim-graphql'
+Plug 'posva/vim-vue'
 if isdirectory(expand("~/projects/dev-utils"))
     Plug '~/projects/dev-utils/conf/vim'
 end

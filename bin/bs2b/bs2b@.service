@@ -5,8 +5,8 @@ After=pulseaudio.service
 
 [Service]
 Type=oneshot
-ExecStart=/home/dhe/bin/bs2b %i start
-ExecStop=/home/dhe/bin/bs2b %i stop
+ExecStart=/home/daniel/bin/bs2b %i start
+ExecStop=/home/daniel/bin/bs2b %i stop
 RemainAfterExit=yes
 
 [Install]

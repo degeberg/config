@@ -60,7 +60,7 @@ myManageHook :: ManageHook
 myManageHook = composeAll
     [ isFullscreen --> doFullFloat
     , title     =? "plexhometheater" --> doShift "plex"
-    , className =? "Firefox" --> doShift "web"
+    --, className =? "Firefox" --> doShift "web"
     , title     =? "VLC media player" --> doFloat
     , title     =? "VLC (XVideo output)" --> doFloat
     ] <+> manageScratchPad
@@ -155,16 +155,16 @@ myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
     , ((modMask , xK_period), sendMessage (IncMasterN (-1)))
 
     -- switch between current and previous workspace
-    --, ((modMask .|. shiftMask , xK_w ), toggleWS )
+    , ((modMask, xK_w ), toggleWS )
 
     -- scratch pad
     , ((0, xK_Meta_R), scratchpadSpawnActionTerminal myTerminal)
 
     -- media keys
-    , ((0, xF86XK_AudioPlay), spawn "mpc -q toggle")
-    , ((0, xF86XK_AudioPrev), spawn "mpc -q prev")
-    , ((0, xF86XK_AudioNext), spawn "mpc -q next")
-    , ((0, xF86XK_AudioStop), spawn "mpc -q stop")
+    --, ((0, xF86XK_AudioPlay), spawn "mpc -q toggle")
+    --, ((0, xF86XK_AudioPrev), spawn "mpc -q prev")
+    --, ((0, xF86XK_AudioNext), spawn "mpc -q next")
+    --, ((0, xF86XK_AudioStop), spawn "mpc -q stop")
 
     -- key maps
     , ((modMask, xK_Prior), spawn "keymap prev")

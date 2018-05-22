@@ -1,6 +1,6 @@
 -- vim: syn=haskell
 
-Config { font    = "xft:bok montecarlo:size=9:normal:antialias=true"
+Config { font    = "xft:ubuntu mono:size=11:normal:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
@@ -20,6 +20,6 @@ Config { font    = "xft:bok montecarlo:size=9:normal:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %service% | %battery% | %multicpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
        }
 
