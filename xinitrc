@@ -20,4 +20,6 @@ urxvtd -q -f -o
 
 eval `ssh-agent`
 
+export LC_TIME="en_DK.UTF-8"
+
 exec xmonad

@@ -9,6 +9,8 @@
     # %I iconname (without its path)
     format = "%a:\n%s\n%b"
 
+    icon_position = left
+
     # Sort messages by urgency
     sort = yes
 
