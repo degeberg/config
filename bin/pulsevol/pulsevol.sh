@@ -2,15 +2,14 @@
 
 STEP='2dB'
 
-default_sink=$(pacmd list-sinks | awk '/* index:/{ print $3 }')
 pipe=/tmp/.xmobar-volume-pipe
 
 function is_muted {
-    pacmd list-sinks | grep -A 15 '* index' | awk '/muted:/{ print $2 }'
+    pactl get-sink-mute @DEFAULT_SINK@ | cut -d' ' -f2
 }
 
 function get_volume {
-    pacmd list-sinks | grep -A 15 '* index' | awk '/volume: front/{ print $7 }' | sed 's/^-0.00$/0.00/'
+    pactl get-sink-volume @DEFAULT_SINK@ | awk '{ print $7 }' | sed 's/^-0.00$/0.00/'
 }
 
 function volume_xmobar {
@@ -30,31 +29,31 @@ function update_pipe {
 case "$1" in
     "up")
         if [ "$(get_volume)" == "-inf" ]; then
-            pactl set-sink-volume $default_sink 0dB
-            pactl set-sink-volume $default_sink \-60dB
+            pactl set-sink-volume @DEFAULT_SINK@ 0dB
+            pactl set-sink-volume @DEFAULT_SINK@ \-60dB
         else
-            pactl set-sink-volume $default_sink +$STEP
+            pactl set-sink-volume @DEFAULT_SINK@ +$STEP
         fi
         update_pipe
         ;;
     "down")
-        pactl set-sink-volume $default_sink \-$STEP
+        pactl set-sink-volume @DEFAULT_SINK@ \-$STEP
         update_pipe
         ;;
     "set-volume")
-        pactl set-sink-volume $default_sink $2
+        pactl set-sink-volume @DEFAULT_SINK@ $2
         update_pipe
         ;;
     "mute")
-        pactl set-sink-mute $default_sink 1
+        pactl set-sink-mute @DEFAULT_SINK@ 1
         update_pipe
         ;;
     "unmute")
-        pactl set-sink-mute $default_sink 0
+        pactl set-sink-mute @DEFAULT_SINK@ 0
         update_pipe
         ;;
     "mute-toggle")
-        pactl set-sink-mute $default_sink toggle
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
         update_pipe
         ;;
     "muted")
