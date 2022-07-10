@@ -14,7 +14,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Fullscreen
 import XMonad.Actions.CycleWS
-import XMonad.Actions.GridSelect
+--import XMonad.Actions.GridSelect
 import XMonad.Actions.TopicSpace
 import XMonad.Actions.DynamicWorkspaces
   (addWorkspacePrompt, removeWorkspace)
@@ -34,7 +34,7 @@ myTerminal = "urxvtc"
 main :: IO ()
 main = do xmproc <- spawnPipe myBar
           xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig
-                   { manageHook         = myManageHook <+> manageDocks <+> manageHook defaultConfig
+                   { manageHook         = myManageHook <+> manageDocks <+> manageHook def
                    , layoutHook         = smartBorders myLayout
                    , terminal           = myTerminal
                    , keys               = myKeys
@@ -73,19 +73,33 @@ browser s = spawn ("firefox " ++ s)
 edit s = spawn ("gvim " ++ s)
 ssh s = spawn (myTerminal ++ " -e ssh " ++ s)
 
+topicItems :: [TopicItem]
+topicItems =
+  [ inHome "web"  (browser "")
+  , inHome "mail" (spawn "thunderbird")
+  ]
+
 myTopicConfig :: TopicConfig
-myTopicConfig = defaultTopicConfig
-    { topicDirs = M.fromList []
-    , defaultTopicAction = const shell
-    , defaultTopic = "dashboard"
-    , topicActions = M.fromList
-        [ ("web",       browser "")
-        , ("im",        ssh "im@degeberg")
-        , ("plex",      spawn "/usr/bin/openpht.sh")
-        , ("mail",      spawn "thunderbird")
-        , ("music",     spawn "gpmdp")
-        ]
-    }
+myTopicConfig = def
+  { topicDirs          = tiDirs    topicItems
+  , topicActions       = tiActions topicItems
+  , defaultTopicAction = const (shell)
+  , defaultTopic       = "web"
+  }
+
+--myTopicConfig :: TopicConfig
+--myTopicConfig = defaultTopicConfig
+--    { topicDirs = M.fromList []
+--    , defaultTopicAction = const shell
+--    , defaultTopic = "dashboard"
+--    , topicActions = M.fromList
+--        [ ("web",       browser "")
+--        , ("im",        ssh "im@degeberg")
+--        , ("plex",      spawn "/usr/bin/openpht.sh")
+--        , ("mail",      spawn "thunderbird")
+--        , ("music",     spawn "gpmdp")
+--        ]
+--    }
 
 
 manageScratchPad :: ManageHook
@@ -102,16 +116,16 @@ myLayout = onWorkspaces ["plex"] (noBorders (fullscreenFull Full)) $
   where
     tiled = Tall 1 (3/100) (1/2)
 
-myXPConfig = defaultXPConfig
-  { fgColor = "#a8a3f7"
-  -- , bgColor = "#ff3c6d"}
-  , bgColor = "#3f3c6d"}
+--myXPConfig = defaultXPConfig
+--  { fgColor = "#a8a3f7"
+--  -- , bgColor = "#ff3c6d"}
+--  , bgColor = "#3f3c6d"}
 
 goto :: Topic -> X ()
 goto = switchTopic myTopicConfig
 
-promptedGoto :: X ()
-promptedGoto = workspacePrompt myXPConfig goto
+--promptedGoto :: X ()
+--promptedGoto = workspacePrompt myXPConfig goto
 
 -- Keys
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -124,9 +138,9 @@ myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
     , ((modMask .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     , ((modMask, xK_a), currentTopicAction myTopicConfig)
-    , ((modMask, xK_d), promptedGoto)
-    , ((modMask .|. shiftMask, xK_n), addWorkspacePrompt myXPConfig >> shell)
-    , ((modMask .|. shiftMask, xK_BackSpace), killAll >> removeWorkspace)
+--    , ((modMask, xK_d), promptedGoto)
+--    , ((modMask .|. shiftMask, xK_n), addWorkspacePrompt myXPConfig >> shell)
+--    , ((modMask .|. shiftMask, xK_BackSpace), killAll >> removeWorkspace)
 
     -- volume control
     , ((0, xF86XK_AudioLowerVolume), spawn "pulsevol down")
@@ -181,7 +195,7 @@ myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
     , ((modMask .|. shiftMask, xK_q ), io exitSuccess)
     , ((modMask , xK_q ), restart "xmonad" True)
 
-    , ((modMask, xK_g), goToSelected defaultGSConfig)
+--    , ((modMask, xK_g), goToSelected defaultGSConfig)
 
      ,((modMask, xK_b     ), sendMessage ToggleStruts)
 
