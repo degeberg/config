@@ -7,7 +7,9 @@ Config { font    = "xft:ubuntu mono:size=11:normal:antialias=true"
        , lowerOnStart = True
        , iconRoot = ".xmonad/resources"
        , commands = [ Run DynNetwork ["-L","0","-H","1048576","--normal","green","--high","red"] 15
-                    , Run MultiCpu ["-t","CPU: <total0>%/<total1>%/<total2>%/<total3>%","-L","3","-H","50","--normal","green","--high","red"] 15
+                    --, Run MultiCpu ["-t","CPU: <total0>%/<total1>%/<total2>%/<total3>%","-L","3","-H","50","--normal","green","--high","red"] 15
+                    , Run MultiCpu ["-t","CPU: <total>%","-L","3","-H","50","--normal","green","--high","red"] 15
+                    --, Run Cpu ["-t","CPU: <total>%","-L","3","-H","50","--normal","green","--high","red"] 15
                     , Run Memory ["-t","Mem: <usedratio>%"] 20
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run StdinReader
@@ -15,11 +17,12 @@ Config { font    = "xft:ubuntu mono:size=11:normal:antialias=true"
                     , Run PipeReader "/tmp/.xmobar-volume-pipe" "vol"
                     , Run Com "keymap" ["current"] "keymap" 5
                     , Run Com "xmobar-service-status" [] "service" 50
-                    , Run BatteryP ["BAT0"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 20
+                    , Run BatteryP ["BAT0", "BAT1"] ["-t","Bat: <left>%/<timeleft>","-L","30","-H","50","-l","red","-n","orange","-h","green"] 20
                     , Run ThermalZone 2 ["-L","40","-H","60","-l","lightblue","-h","red","-t","Temp: <temp>C"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{ %service% | %battery% | %multicpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader%}{ %battery% | %multicpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
+       --, template = "%StdinReader%}{ %battery% | %cpu% | %memory% | %thermal2% | %dynnetwork% | %vol% | %keymap% | <fc=#ee9a00>%date%</fc>"
        }
 
