@@ -9,7 +9,8 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run
-import XMonad.Util.Scratchpad
+--import XMonad.Util.Scratchpad
+import XMonad.Util.NamedScratchpad
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Fullscreen
@@ -55,6 +56,19 @@ myPP h = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
   where
     noScratchPad ws = if ws == "NSP" then "" else ws
 
+
+
+scratchpads :: [NamedScratchpad]
+scratchpads = [
+    NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
+        (customFloating $ W.RationalRect l t w h)
+  ]
+  where
+    h = 0.4     -- terminal height, 10%
+    w = 1       -- terminal width, 100%
+    t = 1 - h   -- distance from top edge, 90%
+    l = 1 - w   -- distance from left edge, 0%
+
 -- ManageHooks
 myManageHook :: ManageHook
 myManageHook = composeAll
@@ -63,13 +77,15 @@ myManageHook = composeAll
     --, className =? "Firefox" --> doShift "web"
     , title     =? "VLC media player" --> doFloat
     , title     =? "VLC (XVideo output)" --> doFloat
-    ] <+> manageScratchPad
+    , title     =? "Microsoft Teams Notification" --> doFloat
+    --] <+> manageScratchPad
+    ] <+> namedScratchpadManageHook scratchpads
 
 shell ::  X ()
 shell = spawn myTerminal
 
 browser, edit, ssh ::  String -> X ()
-browser s = spawn ("firefox " ++ s)
+browser s = spawn ("firefox-developer-edition " ++ s)
 edit s = spawn ("gvim " ++ s)
 ssh s = spawn (myTerminal ++ " -e ssh " ++ s)
 
@@ -102,13 +118,13 @@ myTopicConfig = def
 --    }
 
 
-manageScratchPad :: ManageHook
-manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
-  where
-    h = 0.4     -- terminal height, 10%
-    w = 1       -- terminal width, 100%
-    t = 1 - h   -- distance from top edge, 90%
-    l = 1 - w   -- distance from left edge, 0%
+--manageScratchPad :: ManageHook
+--manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+--  where
+--    h = 0.4     -- terminal height, 10%
+--    w = 1       -- terminal width, 100%
+--    t = 1 - h   -- distance from top edge, 90%
+--    l = 1 - w   -- distance from left edge, 0%
 
 -- Layouts
 myLayout = onWorkspaces ["plex"] (noBorders (fullscreenFull Full)) $
@@ -172,7 +188,8 @@ myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
     , ((modMask, xK_w ), toggleWS )
 
     -- scratch pad
-    , ((0, xK_Meta_R), scratchpadSpawnActionTerminal myTerminal)
+    --, ((0, xK_Meta_R), scratchpadSpawnActionTerminal myTerminal)
+    , ((0, xK_Meta_R), namedScratchpadAction scratchpads "term")
 
     -- media keys
     --, ((0, xF86XK_AudioPlay), spawn "mpc -q toggle")
