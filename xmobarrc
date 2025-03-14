@@ -1,6 +1,6 @@
 -- vim: syn=haskell
 
-Config { font    = "xft:ubuntu mono:size=11:normal:antialias=true"
+Config { font    = "xft:ubuntu mono:size=9:normal:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top

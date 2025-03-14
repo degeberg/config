@@ -41,11 +41,11 @@ main = do xmproc <- spawnPipe myBar
                    , keys               = myKeys
                    --, workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "b", "im", "d"] ++ myTopics
                    , workspaces         = ["web"] ++ map show [1 .. 9 :: Int] ++ ["a", "mail", "im", "music", "plex"]
-                   , logHook            = setWMName "LG3D" >> dynamicLogWithPP (myPP xmproc)
+                   , logHook            = dynamicLogWithPP (myPP xmproc)
                    , modMask            = mod4Mask     -- Rebind Mod to the Windows key
                    , normalBorderColor  = "#555555"
                    , borderWidth        = 1
-                   , startupHook        = setWMName "LG3D" >> spawn "killall xbindkeys; xbindkeys"
+                   , startupHook        = spawn "killall xbindkeys; xbindkeys"
                    }
 
 myPP h = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"

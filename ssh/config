@@ -54,24 +54,22 @@ Host gitlab
 ############
 
 # Basic settings
-Host *.jobsafari.dk
-    IdentityFile ~/.ssh/id_rsa-jix
+Host *.jobsafari.dk *.dev.job.dk *.prod.job.dk
     ForwardX11 yes
     ForwardX11Trusted yes
     ForwardAgent yes
 
 # Direct/public access
 Host gnu
+    Hostname gnu.dev.job.dk
     User dhe
-    IdentityFile ~/.ssh/id_rsa-jix
     ForwardX11 yes
     ForwardX11Trusted yes
     ForwardAgent yes
 
-Host gnu batch
-    Hostname %h.jobsafari.dk
+Host batch
+    Hostname batch.prod.job.dk
     User jobxx
-    IdentityFile ~/.ssh/id_rsa-jix
     ForwardX11 yes
     ForwardX11Trusted yes
     ForwardAgent yes

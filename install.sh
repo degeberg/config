@@ -28,6 +28,6 @@ ln -s $DIR/redshift.conf ~/.config/redshift.conf
 mkdir -p ~/.config/systemd/user
 ln $DIR/systemd/compton.service ~/.config/systemd/user/compton.service
 systemctl --user daemon-reload
-systemctl --user enable compton.service
+#systemctl --user enable compton.service
 
 zsh ./install-server.sh
