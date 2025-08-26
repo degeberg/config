@@ -30,7 +30,7 @@ runCmd, myBar, myTerminal :: String
 --runCmd= "dmenu_run -nb '#1a1a1a' -nf '#ffffff' -sb '#aecf96' -sf black -p '>'"
 runCmd= "rofi -show run"
 myBar = "xmobar"
-myTerminal = "urxvtc"
+myTerminal = "kitty --single-instance"
 
 main :: IO ()
 main = do xmproc <- spawnPipe myBar
@@ -60,7 +60,7 @@ myPP h = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">"
 
 scratchpads :: [NamedScratchpad]
 scratchpads = [
-    NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
+    NS "term" "kitty --name scratchpad" (resource =? "scratchpad")
         (customFloating $ W.RationalRect l t w h)
   ]
   where
@@ -85,7 +85,7 @@ shell ::  X ()
 shell = spawn myTerminal
 
 browser, edit, ssh ::  String -> X ()
-browser s = spawn ("firefox-developer-edition " ++ s)
+browser s = spawn ("firefox " ++ s)
 edit s = spawn ("gvim " ++ s)
 ssh s = spawn (myTerminal ++ " -e ssh " ++ s)
 
@@ -221,7 +221,7 @@ myKeys conf@XConfig {XMonad.modMask = modMask} = M.fromList $
 
      ,((modMask, xK_p),                    spawn runCmd)
      ,((modMask .|. shiftMask, xK_Return), shell)
-     ,((modMask .|. shiftMask, xK_s),      spawn "rofi -show ssh")
+     ,((modMask .|. shiftMask, xK_s),      spawn "rofimoji")
      ,((modMask .|. shiftMask, xK_d),      spawn "rofi -show window")
     ]
     ++
